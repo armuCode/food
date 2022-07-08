@@ -5,7 +5,7 @@ const { API_KEY } = process.env;
 const getDiets = async (req, res) => { 
   try { 
     const dietas = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=30`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=3`
     );
   
     const types = await dietas.data.results.map((t) => t.diets);  
@@ -19,23 +19,20 @@ const getDiets = async (req, res) => {
       });
     });
     return typeDiets;
-  } catch (error) {
-    console.log(error); 
+  } catch(error) {
+    console.error("\x1b[41m", '---Error during getDiets---', error.response.data);
   }
 };
 
 const getAlldiets = async (req, res) => {
-  try {
+
     const dietsInBase = await Diet.findAll();
     const base = dietsInBase.map(r => r.name);
     const dietsApi = await getDiets();
     const api = dietsApi.map(r => r.name);
     const finded = base.length ? base : api
-    console.log(finded);
     return finded;
-  } catch (e) {
-   console.log(e);
-  }
+
 }; 
 
 module.exports = {

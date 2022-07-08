@@ -3,23 +3,17 @@ const router = express.Router();
 
 const {   
   allRecipes,
+  getSearchByName,
+  dbData
 } = require('../controllers/Recipes.controllers');
-
-const {   
-  getByName,
-  getIdRecipe,
-  getPost,
-  deleted,  
-} = require('../controllers/Recipe.controllers');
-
-const {   
-  getDiets,
-  getAlldietas, 
-} = require('../controllers/Diets.controllers');
 
 
 router.get('/pruebas', async (req, res, next ) => {
-    res.json(await getAlldietas())
+  try {
+    res.status(200).json(await dbData())
+  } catch (error) {
+    next(error)
+  }
 })
 
 // http://localhost:3001/recipes
@@ -31,6 +25,17 @@ router.get('/', async (req, res, next ) => {
     next(error)
   }
 })
+
+router.get('/search', async (req, res, next) => {
+
+  try {
+    const { name } = req.query;
+    const finded = await getSearchByName(name)
+    res.status(200).json(finded)
+  } catch (error) {
+    next(error)    
+  }
+});
 
 
 module.exports = router

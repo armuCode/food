@@ -5,16 +5,20 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Recipe', {
     
-     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
+    id: {
       primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1,
+      allowNull: false,
     },
     
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    
+    image: {
+      type: DataTypes.STRING
     },
 
     summary: {
@@ -22,22 +26,24 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    score: {
+    healthyScore:{
       type: DataTypes.FLOAT
     },
 
-    healthScore:{
-      type: DataTypes.FLOAT
-    },
-
-    image: {
-      type: DataTypes.STRING
+    dishTypes: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
 
     steps: {
       type: DataTypes.TEXT
     },
 
-
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
   });
+  
 };
+

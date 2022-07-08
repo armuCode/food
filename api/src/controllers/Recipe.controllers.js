@@ -1,70 +1,70 @@
+const express = require('express')
+const router = express.Router()
 const { Diet, Recipe } = require("../db");
 
+const {   
+  getApiData,
+} = require('./Recipes.controllers');
 
-const getByName = async (req, res) => { 
-  try {
-    const { name } = req.query;
-    const recipe = await allRecipes();
-    if (name) {
-      const fil = recipe.filter((el) =>
-        el.name.toLowerCase().includes(name.toLowerCase())
-      );
-      fil.length ? res.send(fil) : res.status(404).send({ msg: "not found" });
-    } else {
-      return res.send(recipe);
+
+
+const getIdInAPI = async (id) => {
+  const searched = await getApiData();
+  const finded = searched.find(r => r.id === id);
+  return finded;
+}
+
+const getIdInDb = async (id) => {
+  const base = await Recipe.findByPk(id, {
+    include: {
+        model: Diet,
+        attributes: ['name'],
+        through: {
+            attributes: [],
+        }
     }
-  } catch (e) {
-    console.log('Error_getByName',e);
-  }
+  });
+
+  const finded = base.dataValues;
+
+  finded['Diets'] = finded.Diets.map(r => r.name);
+
+  return finded;
+
 };
 
-const getIdRecipe = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const filId = await allRecipes(id);
-    if (id) {
-      const busqueda = filId.filter((el) => el.id === id);
-      busqueda.length
-        ? res.send(busqueda)
-        : res.send({ msg: "error does not exist" });
-    } else {
-      res.send({ msg: "Should enter a valid ID" });
-    }
-  } catch (error) { 
-    res.status(404).send({ msg: "Should enter a valid ID" });
-  }
-};
+const getPost = async (name, image, summary, healthyScore, diets, dishTypes, steps) => {
 
-const getPost = async (req, res) => {
-  const { name, summary, score, healthyScore, steps, type, image, dishTypes } =
-    req.body;
-  try {
-    const nuevaReceta = await Recipe.create({
+  if(!name) throw new Error('Name is required')
+  if(!image) throw new Error('No image was provided')
+  if(!summary) throw new Error('Summary is required')
+  if(healthyScore < 0 || healthyScore > 100) throw new Error('Score must be a number between 0 to 100');
+  if(!diets) throw new Error('Select at least one diet')
+  if(!dishTypes) throw new Error('Select at least one dish type')
+  if(!steps) throw new Error('Describe at least one step')
+  else {
+    const newRecipe = await Recipe.create({
       name,
       image,
       summary,
-      score,
       healthyScore,
-      type,
+      diets,
       dishTypes, 
       steps,
-      
     });
-
-    const dietas = await Diet.findAll({
-      where: { name: type },
+    const allDietsDb = await Diet.findAll({
+      where: { name: diets },
     });
-    await nuevaReceta.addDiet(dietas); 
+    await newRecipe.addDiet(allDietsDb); 
 
-    return res.status(200).send({ msg: "successfully created" });
-  } catch (e) { 
-    console.log('Error_getPost',e);
-  }
-};
+    return `Recipe '${name}' successfully created`
+  };
+
+}
 
 
 const deleted = async(req,res)=>{
-  let {id}=req.params
+  let { id }=req.params
   await Recipe.destroy({
     where: {
      id: id
@@ -79,8 +79,8 @@ const deleted = async(req,res)=>{
 
 
 module.exports = {
-  getByName,
-  getIdRecipe,
+  getIdInAPI,
+  getIdInDb,
   getPost,
   deleted,  
 };
