@@ -35,7 +35,7 @@ router.post('/create', async (req, res, next) => {
           image, 
           summary, 
           healthyScore, 
-          diets, 
+          Diets, 
           dishTypes, 
           steps 
         } =  req.body;
@@ -48,7 +48,7 @@ router.post('/create', async (req, res, next) => {
       image, 
       summary, 
       healthyScore, 
-      diets, 
+      Diets, 
       dishTypes, 
       steps
     );

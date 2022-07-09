@@ -72,7 +72,6 @@ const getSearchByName = async (name) => {
     const fil = allrecipesFinded.filter((el) =>
       el.name.toLowerCase().includes(name.toLowerCase())
       ); 
-    console.log("\x1b[43m", fil)
 
   if(fil.length) return fil; 
   else return (`${name} not found in this search`);

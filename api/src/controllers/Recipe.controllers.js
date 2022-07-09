@@ -33,13 +33,13 @@ const getIdInDb = async (id) => {
 
 };
 
-const getPost = async (name, image, summary, healthyScore, diets, dishTypes, steps) => {
+const getPost = async (name, image, summary, healthyScore, Diets, dishTypes, steps) => {
 
   if(!name) throw new Error('Name is required')
   if(!image) throw new Error('No image was provided')
   if(!summary) throw new Error('Summary is required')
   if(healthyScore < 0 || healthyScore > 100) throw new Error('Score must be a number between 0 to 100');
-  if(!diets) throw new Error('Select at least one diet')
+  if(!Diets) throw new Error('Select at least one diet')
   if(!dishTypes) throw new Error('Select at least one dish type')
   if(!steps) throw new Error('Describe at least one step')
   else {
@@ -48,12 +48,12 @@ const getPost = async (name, image, summary, healthyScore, diets, dishTypes, ste
       image,
       summary,
       healthyScore,
-      diets,
+      Diets,
       dishTypes, 
       steps,
     });
     const allDietsDb = await Diet.findAll({
-      where: { name: diets },
+      where: { name: Diets },
     });
     await newRecipe.addDiet(allDietsDb); 
 
