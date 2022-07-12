@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
     },
 
     steps: {
-      type: DataTypes.TEXT
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
 
     createdInDb: {

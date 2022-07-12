@@ -10,7 +10,7 @@ const {
 } = require('../controllers/Recipe.controllers');
 
 
-
+// http://localhost:3001/recipe
 router.get('/:id', async (req, res, next) => {
   
   const { id } = req.params;

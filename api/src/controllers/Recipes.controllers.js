@@ -1,12 +1,12 @@
 const axios = require("axios");
 const db = require("../db");
-const { API_KEY } = process.env;
+const { API_KEY3 } = process.env;
 const { Diet, Recipe } = require("../db");
 
 const getApiData = async () => {  
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=3`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=3`
     );
     const apiData = apiUrl.data.results.map((recipes) => {
        
@@ -32,7 +32,7 @@ const getApiData = async () => {
     return apiData;
   } catch(error) {
     console.error(
-      "\x1b[41m", '---Error during getApiData---', error.response.data
+      "\x1b[43m", '---Error during getApiData---', error.response.data
     );
   }
 };

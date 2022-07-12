@@ -1,13 +1,107 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+:root {
+  --naranja: #EB6841;
+  --orange: var(--naranja);
+
+  --azul: #00A0B0;
+  --blue: var(--azul);
+
+  --cafe: #6A4A3C;
+  --coffee: var(--cafe);
+
+  --rojo: #CC333F;
+  --red:var(--rojo);
+
+  --amarillo: #EDC951;
+  --yellow: var(--amarillo);
+
+  --azul-oscuro: #010A3D;
+  --dark-blue: var(--azul-oscuro);
+
+  font-family: ("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css") ;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0rem;
+  padding: 0rem;
+  font-family: 'Cascadia Code', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Cascadia Code', sans-serif;
 }
+
+
+button {
+  padding: 0.8em 1.8em;
+  border: 2px solid var(--naranja);
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: var(--orange);
+ }
+ 
+ button::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--naranja);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+  
+ }
+ 
+ button:hover::before {
+  width: 105%;
+ }
+ 
+ button:hover {
+  color: #111;
+ }
+
+ option {
+  background-color: var(--amarillo);
+ }
+
+ .input-group {
+  position: relative;
+ }
+ 
+ input {
+  background-color: var(--orange);
+  color:var(--dark-blue);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 1.5rem;
+ }
+
+ select {
+  background-color: var(--orange);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-inline-end: 1rem;
+  size: 3rem;
+  height: 2rem;
+  width: 15rem;
+ }
+
+ * {
+  font-size: 1.2rem;
+ }

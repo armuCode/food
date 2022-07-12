@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllRecipes } from '../redux/actions.js'
+import { getAllRecipes, getAllDiets} from '../redux/actions.js'
 
 const Landing = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllRecipes());
+    dispatch(getAllDiets());
   }, [])
   
   return (
