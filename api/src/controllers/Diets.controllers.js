@@ -1,11 +1,11 @@
 const axios = require("axios");
 const { Diet } = require("../db");
-const { API_KEY3 } = process.env; 
+const { API_KEY4 } = process.env; 
 
 const getDiets = async (req, res) => { 
   try { 
     const dietas = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=3`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY4}&addRecipeInformation=true&number=3`
     );
   
     const types = await dietas.data.results.map((t) => t.diets);  
@@ -21,7 +21,7 @@ const getDiets = async (req, res) => {
     return typeDiets;
   } catch(error) {
     console.error("\x1b[43m", '---Error during getDiets---', error.response.data);
-    return alert (error.response.data)
+    throw new Error ('BackEnd-Diets', error)
   }
 };
 

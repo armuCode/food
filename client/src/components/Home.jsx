@@ -15,7 +15,6 @@ export default function Home() {
   
   useEffect(() => {
     allRecipes = [] ? dispatch(getAllRecipes()) : '';
-    allDiets = [] ? dispatch(getAllDiets()) : '';
   }, [dispatch])
   
   let allDiets = useSelector(state => state.allDiets);

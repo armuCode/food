@@ -26,17 +26,34 @@ export default function RecipeDetails () {
           <h2>{name}</h2>
           <img src={image} alt={name} />
           <p>{summary}</p>
-          <p>{healthyScore}</p>
+          <p>HealthyScore: {healthyScore}</p>
           <div>
-            { steps ? steps.map(s => {
+            { steps.map(s => {
               return (
-                <>
-                  <p>Step {s.number}</p>
-                  <p>{s.step}</p>
-                </>
+                <ul>
+                  <span>Step {s.number}: </span>
+                  <span>{s.step}</span>
+                </ul>
               )
-            }) : []}
+            }) }
           </div>
+          <div>
+            <h2>Diets</h2>
+            { Diets.map(s => {
+              return (
+                  <li>{s}</li>
+              )
+            }) }
+          </div>
+          <div>
+            <h2>Dysh Types</h2>
+            { dishTypes.map(s => {
+              return (
+                  <li>{s}</li>
+              )
+            }) }
+          </div>
+
       </div>
     )
   }
