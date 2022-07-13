@@ -8,16 +8,7 @@ const {
 } = require('../controllers/Recipes.controllers');
 
 
-router.get('/pruebas', async (req, res, next ) => {
-  try {
-    res.status(200).json(await dbData())
-  } catch (error) {
-    next(error)
-  }
-})
-
 // http://localhost:3001/recipes
-
 router.get('/', async (req, res, next ) => {
   try {
     res.status(200).json(await allRecipes())
@@ -26,12 +17,12 @@ router.get('/', async (req, res, next ) => {
   }
 })
 
-router.get('/search', async (req, res, next) => {
+router.get('/search/:name', async (req, res, next) => {
 
   try {
-    const { name } = req.query;
+    const { name } = req.params;
     const finded = await getSearchByName(name)
-    res.status(200).json(finded)
+    res.json(finded)
   } catch (error) {
     next(error)    
   }

@@ -5,6 +5,7 @@ import Home from './components/Home.jsx';
 import RecipeDetails from './components/RecipeDetails.jsx';
 
 import './App.css';
+import Navbar from './components/Navbar.jsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </Route>
 
         <Route path='/home'>
+          <Navbar/>
           <Home/>
         </Route>
 

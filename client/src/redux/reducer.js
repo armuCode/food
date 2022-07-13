@@ -1,5 +1,5 @@
 
-import { GET_ALL_RECIPES, GET_ALL_DIETS, GET_DETAILS, CLEAN_UP } from "./actions";
+import { GET_ALL_RECIPES, GET_ALL_DIETS, GET_DETAILS, CLEAN_UP, GET_SEARCHED } from "./actions";
 
 const initialState = {
   allRecipes: [],
@@ -31,6 +31,11 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
         recipeDetails: payload,
+      }
+    case GET_SEARCHED:
+      return{
+        ...state,
+        actionsRecipes: payload,
       }
     default:
         return state;

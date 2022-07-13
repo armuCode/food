@@ -5,6 +5,8 @@ export const GET_ALL_RECIPES = 'GET_ALL_RECIPES';
 export const GET_ALL_DIETS = 'GET_ALL_DIETS';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_UP = 'CLEAN_UP';
+export const GET_SEARCHED = 'GET_SEARCHED';
+
 
 export function getAllRecipes() {
   return async function(dispatch){
@@ -17,7 +19,7 @@ export function getAllRecipes() {
     })
     .catch(err => {
       console.error(`Error in getAllRecipes`, err.response.data);
-      return alert(err.message);
+      return alert(err);
     })
   }
 }
@@ -33,7 +35,7 @@ export function getAllDiets() {
     })
     .catch(err => {
       console.error(`Error in getAllDiets`, err.response.data);
-      return alert(err.message);
+      return alert(err);
     })
   }
 }
@@ -50,7 +52,7 @@ export function getDetails(id) {
     })
     .catch(err => {
       console.error(`Error in getDetails`, err.response.data);
-      return alert(err.message);
+      return alert(err);
     })
   }
 }
@@ -59,5 +61,21 @@ export function cleanUp() {
   return {
     type: CLEAN_UP,
     payload: []
+  }
+}
+
+export function getSearchedRecipes (search) {
+  return async function(dispatch){
+    return await axios.get(`${REACT_APP_HOST}/recipes/search/${search}`)
+    .then(rAxios => {
+      dispatch({
+        type: GET_SEARCHED,
+        payload: rAxios.data
+      });
+    })
+    .catch(err => {
+      console.error(`Error in getSearchedRecipes`, err.response.data);
+      return alert(`No se encontraron resultados para ${search}`);
+    })
   }
 }

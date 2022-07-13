@@ -14,53 +14,55 @@ export default function Home() {
   
   
   useEffect(() => {
-    allRecipes = [] ? dispatch(getAllRecipes()) : '';
+    actionsRecipes = [] ? dispatch(getAllRecipes()) : '';
   }, [dispatch])
   
-  let allDiets = useSelector(state => state.allDiets);
-  let allRecipes = useSelector(state => state.allRecipes);
+  let actionsRecipes = useSelector(state => state.actionsRecipes);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(1);
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-  const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const currentRecipes = actionsRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
 
-  return (
-    <div>
-        <div>
-          <Pages
-            recipesPerPage={recipesPerPage}
-            allRecipes = {allRecipes.length}
-            pages={pages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-          <ul>
-            {currentRecipes.map(recipe => {
-              return(
-                <NavLink to={`/recipe/${recipe.id}`} key={recipe.id}>
-                  <CardRecipe
-                    key={recipe.id}
-                    id={recipe.id}
-                    name={recipe.name}
-                    image={recipe.image}
-                    summary={recipe.summary}
-                    healthyScore={recipe.healthyScore}
-                    Diets={recipe.Diets}
-                    dishTypes={recipe.dishTypes}
-                    steps={recipe.steps}
-                    createdInDb={recipe.createdInDb ? recipe.createdInDb : recipe.createdInDb = false}
-                  />
-                </NavLink>
-              )
-            })}
-          </ul>
-        </div>
-    </div>
-  )
+  if(actionsRecipes.length === 0) return <Loader />
+  else {
+    return (
+      <div>
+          <div>
+            <Pages
+              recipesPerPage={recipesPerPage}
+              actionsRecipes = {actionsRecipes.length}
+              pages={pages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+            <ul>
+              {currentRecipes.map(recipe => {
+                return(
+                  <NavLink to={`/recipe/${recipe.id}`} key={recipe.id}>
+                    <CardRecipe
+                      key={recipe.id}
+                      id={recipe.id}
+                      name={recipe.name}
+                      image={recipe.image}
+                      summary={recipe.summary}
+                      healthyScore={recipe.healthyScore}
+                      Diets={recipe.Diets}
+                      dishTypes={recipe.dishTypes}
+                      steps={recipe.steps}
+                      createdInDb={recipe.createdInDb ? recipe.createdInDb : recipe.createdInDb = false}
+                    />
+                  </NavLink>
+                )
+              })}
+            </ul>
+          </div>
+      </div>
+    )
+  }
 }

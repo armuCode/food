@@ -26,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--black);
-  
 }
 
 code {
@@ -98,3 +97,12 @@ button {
  * {
   font-size: 1.2rem;
  }
+
+ a:visited {
+  color: var(--gold);
+  }
+
+  a:link {
+    color: var(--gold) ;
+    text-decoration: none;
+    }

@@ -1,12 +1,12 @@
 const axios = require("axios");
 const db = require("../db");
-const { API_KEY4 } = process.env;
+const { API_KEY1 } = process.env;
 const { Diet, Recipe } = require("../db");
 
 const getApiData = async () => {  
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY4}&addRecipeInformation=true&number=3`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY1}&addRecipeInformation=true&number=3`
     );
     const apiData = apiUrl.data.results.map((recipes) => {
        
@@ -34,7 +34,7 @@ const getApiData = async () => {
     console.error(
       "\x1b[43m", '---Error during getApiData---', error.response.data
     );
-    throw new Error ('BackEnd-Recipes', error)
+    throw new Error ('BackEnd-Recipes', 'No se cargaron las recetas')
   }
 };
 
@@ -75,9 +75,10 @@ const getSearchByName = async (name) => {
       ); 
 
   if(fil.length) return fil; 
-  else return (`${name} not found in this search`);
+  else {
+      throw new Error(`not found in this search ${name}`)  
+    }
   } 
-
 };
 
 module.exports = {

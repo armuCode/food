@@ -4,17 +4,17 @@ import Loader from "./Loader";
 
 import './CSS/Pages.css';
 
-export default function Pages({recipesPerPage, allRecipes, pages, currentPage, setCurrentPage}){
+export default function Pages({recipesPerPage, actionsRecipes, pages, currentPage, setCurrentPage}){
   const pageNumbers = [];
 
-  for (let i=1; i<=Math.ceil(allRecipes/recipesPerPage); i++) {
+  for (let i=1; i<=Math.ceil(actionsRecipes/recipesPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  let totalPages = Math.ceil(allRecipes/recipesPerPage);
+  let totalPages = Math.ceil(actionsRecipes/recipesPerPage);
 
   return (
-    !allRecipes === [] ? <Loader /> :
+    !actionsRecipes === [] ? <Loader /> :
     <nav>
       <ul>
         <button
