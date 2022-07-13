@@ -1,9 +1,9 @@
 .form {
   --width-of-input: 200px;
   --border-height: 1px;
-  --border-before-color: var(--black);
+  --border-before-color: var(--white);
   --border-after-color: var(--gold);
-  --input-hovered-color: var(--gold);
+  --input-hovered-color: var(--white);
   position: relative;
   width: var(--width-of-input);
  }

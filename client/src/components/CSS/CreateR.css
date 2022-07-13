@@ -1,0 +1,12 @@
+.errors{
+  font-size: 0.5rem;
+  padding: 0rem;
+  margin-top: 0rem;
+  color: red;
+}
+
+.blocked{
+  border: 1px solid var(--white);
+  background-color: var(--white);
+  color: var(--white);
+}

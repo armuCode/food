@@ -11,3 +11,24 @@
   color: var(--black);
   align-items: center;
 }
+
+.tabs{
+  width: 20rem;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbarActions {
+  margin: 0rem;
+  padding: 0rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--pale);
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: var(--black);
+  align-items: center;
+}

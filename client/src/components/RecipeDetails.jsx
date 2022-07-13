@@ -16,7 +16,7 @@ export default function RecipeDetails () {
   let allRecipes = useSelector(state => state.allRecipes);
   let recipeDetails = useSelector(state => state.recipeDetails);
   useEffect(() => {
-    if(allRecipes !== []) dispatch(getAllRecipes())
+    if(allRecipes.length === 0 ) dispatch(getAllRecipes())
   }, [dispatch])
   
   const { name, image, summary, healthyScore, dishTypes, steps, Diets } = recipeDetails

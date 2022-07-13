@@ -6,6 +6,7 @@ export const GET_ALL_DIETS = 'GET_ALL_DIETS';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_UP = 'CLEAN_UP';
 export const GET_SEARCHED = 'GET_SEARCHED';
+export const POST_RECIPE = 'POST_RECIPE';
 
 
 export function getAllRecipes() {
@@ -78,4 +79,19 @@ export function getSearchedRecipes (search) {
       return alert(`No se encontraron resultados para ${search}`);
     })
   }
+}
+
+export function postRecipe (payload) {
+  return async function(dispatch){
+    return await axios.get(`${REACT_APP_HOST}/recipe/create`, payload)
+    .then(rAxios => {
+      dispatch({
+        type: POST_RECIPE,
+        payload: rAxios.data
+      });
+    })
+    .catch (error => {
+      return alert(error)
+    })
+  };
 }

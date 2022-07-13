@@ -98,11 +98,11 @@ button {
   font-size: 1.2rem;
  }
 
- a:visited {
+a:visited {
   color: var(--gold);
-  }
+}
 
-  a:link {
-    color: var(--gold) ;
-    text-decoration: none;
-    }
+a:link {
+  color: var(--gold) ;
+  text-decoration: none;
+}

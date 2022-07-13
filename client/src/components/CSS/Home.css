@@ -1,0 +1,23 @@
+.cardSize{
+  margin: 0rem;
+  padding: 0rem;
+  gap: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: var(--black);
+  align-items: center;
+
+}
+
+a:visited {
+  color: var(--black);
+}
+
+a:link {
+  color: var(--black) ;
+  text-decoration: none;
+}

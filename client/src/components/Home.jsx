@@ -8,19 +8,21 @@ import Pages from "../components/Pages";
 import CardRecipe from "../components/CardRecipe";
 import Loader from "./Loader";
 
+import './CSS/Home.css';
+
 export default function Home() {
 
   const dispatch = useDispatch();
   
+  let actionsRecipes = useSelector(state => state.actionsRecipes);
   
   useEffect(() => {
-    actionsRecipes = [] ? dispatch(getAllRecipes()) : '';
+    actionsRecipes.length === 0 ? dispatch(getAllRecipes()) : '';
   }, [dispatch])
   
-  let actionsRecipes = useSelector(state => state.actionsRecipes);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage] = useState(1);
+  const [recipesPerPage] = useState(4);
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = actionsRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
@@ -32,7 +34,7 @@ export default function Home() {
   if(actionsRecipes.length === 0) return <Loader />
   else {
     return (
-      <div>
+      <div >
           <div>
             <Pages
               recipesPerPage={recipesPerPage}
@@ -41,10 +43,9 @@ export default function Home() {
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
             />
-            <ul>
+            <ul className="cardSize">
               {currentRecipes.map(recipe => {
                 return(
-                  <NavLink to={`/recipe/${recipe.id}`} key={recipe.id}>
                     <CardRecipe
                       key={recipe.id}
                       id={recipe.id}
@@ -57,7 +58,6 @@ export default function Home() {
                       steps={recipe.steps}
                       createdInDb={recipe.createdInDb ? recipe.createdInDb : recipe.createdInDb = false}
                     />
-                  </NavLink>
                 )
               })}
             </ul>

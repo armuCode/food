@@ -30,7 +30,7 @@ export default function Searchbar() {
       <div className="form">
         <form onSubmit={(e) => onSubmit(e)}>
           <input 
-            class="input" 
+            className="input" 
             placeholder="find a recipe by name..." 
             required=""
             onChange={(e) => onChange(e)}
