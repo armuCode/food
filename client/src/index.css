@@ -1,48 +1,42 @@
-@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
 
 :root {
-  --naranja: #EB6841;
-  --orange: var(--naranja);
+  --pale : #C0B8B4;
+  
+  --gold: #D2B655;
 
-  --azul: #00A0B0;
-  --blue: var(--azul);
+  --moss: #3B5426;
 
-  --cafe: #6A4A3C;
-  --coffee: var(--cafe);
+  --gray: #535151;
 
-  --rojo: #CC333F;
-  --red:var(--rojo);
+  --manatee: #91909F;
 
-  --amarillo: #EDC951;
-  --yellow: var(--amarillo);
+  --black: #020202;
 
-  --azul-oscuro: #010A3D;
-  --dark-blue: var(--azul-oscuro);
+  --white: #FFFFFF;
 
-  font-family: ("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css") ;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
   margin: 0rem;
   padding: 0rem;
-  font-family: 'Cascadia Code', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: white;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
+  color: var(--black);
   
 }
 
 code {
-  font-family: 'Cascadia Code', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 
 button {
   padding: 0.8em 1.8em;
-  border: 2px solid var(--naranja);
+  border: 2px solid var(--black);
   position: relative;
   overflow: hidden;
   background-color: transparent;
@@ -52,7 +46,7 @@ button {
   transition: .3s;
   z-index: 1;
   font-family: inherit;
-  color: var(--orange);
+  color: var(--black);
  }
  
  button::before {
@@ -62,12 +56,11 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: var(--naranja);
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: black;
   transition: .5s ease;
   display: block;
   z-index: -1;
-  
  }
  
  button:hover::before {
@@ -75,11 +68,11 @@ button {
  }
  
  button:hover {
-  color: #111;
+  color: white;
  }
 
  option {
-  background-color: var(--amarillo);
+  background-color: var(--moss);
  }
 
  .input-group {
@@ -87,14 +80,14 @@ button {
  }
  
  input {
-  background-color: var(--orange);
+  background-color: var(--moss);
   color:var(--dark-blue);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   height: 1.5rem;
  }
 
  select {
-  background-color: var(--orange);
+  background-color: var(--moss);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding-inline-end: 1rem;
   size: 3rem;

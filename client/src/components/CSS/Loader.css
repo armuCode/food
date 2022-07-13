@@ -15,7 +15,7 @@
   height: 100%;
   border-right: 4px solid #17FEFF;
   overflow: hidden;
-  color: #17FEFF;
+  color: var(--black);
   animation: load91371 2s linear infinite;
  }
  
@@ -29,7 +29,7 @@
   }
  
   11%,21%,31%,41%,51%,61%,71%,81%,91% {
-   border-right-color: #17FEFF;
+   border-right-color: var(--manatee);
   }
  
   60%, 80% {

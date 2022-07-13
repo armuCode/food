@@ -16,23 +16,19 @@ export default function Pages({recipesPerPage, allRecipes, pages, currentPage, s
   return (
     !allRecipes === [] ? <Loader /> :
     <nav>
-      <span>
+      <ul>
         <button
           onClick={()=>setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)}
         >←PREV</button>
-
+        {pageNumbers && pageNumbers.map(number => { return (
+          <button
+          className={currentPage === number ? 'active' : ''}
+          onClick={()=>pages(number)}>{`${number}`}
+          </button>)
+        })}
         <button
           onClick={()=>setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
         >NEXT→</button>
-      </span>
-      
-      <ul>
-        {pageNumbers && pageNumbers.map(number => { return (
-          <button
-            className={currentPage === number ? 'active' : ''}
-            onClick={()=>pages(number)}>{`${number}`}
-          </button>)
-        })}
       </ul>
     </nav>
   )

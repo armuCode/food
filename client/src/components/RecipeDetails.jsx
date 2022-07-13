@@ -1,7 +1,7 @@
 import React, { useEffect }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink, useParams } from "react-router-dom";
-import { getDetails, getAllRecipes } from "../redux/actions";
+import { getDetails, getAllRecipes, cleanUp } from "../redux/actions";
 import Loader from "./Loader";
 
 export default function RecipeDetails () {
@@ -10,6 +10,7 @@ export default function RecipeDetails () {
   let { id } = useParams();
   useEffect(() => {
     dispatch(getDetails(id))
+    return dispatch(cleanUp())
   },[id])
 
   let allRecipes = useSelector(state => state.allRecipes);
@@ -28,30 +29,30 @@ export default function RecipeDetails () {
           <p>{summary}</p>
           <p>HealthyScore: {healthyScore}</p>
           <div>
-            { steps.map(s => {
+            { steps ? steps.map(s => {
               return (
                 <ul>
                   <span>Step {s.number}: </span>
                   <span>{s.step}</span>
                 </ul>
               )
-            }) }
+            }) : [] }
           </div>
           <div>
             <h2>Diets</h2>
-            { Diets.map(s => {
+            { Diets ? Diets.map(s => {
               return (
                   <li>{s}</li>
               )
-            }) }
+            }) : [] }
           </div>
           <div>
             <h2>Dysh Types</h2>
-            { dishTypes.map(s => {
+            { dishTypes ? dishTypes.map(s => {
               return (
                   <li>{s}</li>
               )
-            }) }
+            }) : [] }
           </div>
 
       </div>
