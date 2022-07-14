@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSortAZ } from "../redux/actions";
+import { sortAZ } from "../redux/actions";
 
 
 
@@ -10,7 +10,7 @@ export default function SortAZ() {
 
   function onSelectChange(e) {
     e.preventDefault(e)
-    dispatch(getSortAZ(e.target.value))
+    dispatch(sortAZ(e.target.value))
   }
 
   return (

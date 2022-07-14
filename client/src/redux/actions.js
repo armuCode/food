@@ -7,7 +7,8 @@ export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_UP = 'CLEAN_UP';
 export const GET_SEARCHED = 'GET_SEARCHED';
 export const POST_RECIPE = 'POST_RECIPE';
-export const GET_SORT_AZ = 'GET_SORT_AZ';
+export const SORT_AZ = 'SORT_AZ';
+export const SORT_SCORE = 'SORT_SCORE';
 
 export function getAllRecipes() {
   return async function(dispatch){
@@ -96,9 +97,16 @@ export function postRecipe (payload) {
   };
 }
 
-export function getSortAZ (sort) {
+export function sortAZ (sort) {
   return {
-    type: GET_SORT_AZ,
+    type: SORT_AZ,
+    payload: sort
+  }
+}
+
+export function sortScore (sort) {
+  return {
+    type: SORT_SCORE,
     payload: sort
   }
 }

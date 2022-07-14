@@ -4,8 +4,9 @@ import {  GET_ALL_RECIPES,
           CLEAN_UP, 
           GET_SEARCHED, 
           POST_RECIPE,
-          GET_SORT_AZ
-        } from "./actions";
+          SORT_AZ,
+          SORT_SCORE
+} from "./actions";
 
 const initialState = {
   allRecipes: [],
@@ -47,7 +48,7 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
       }
-    case GET_SORT_AZ:
+    case SORT_AZ:
       let sortRAZ = [...state.actionsRecipes];
       sortRAZ.sort((a, b) => {
         if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -61,6 +62,21 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return {
         ...state,
         actionsRecipes: sortRAZ,
+      };
+    case SORT_SCORE:
+      let sortRScore = [...state.actionsRecipes];
+      sortRScore.sort((a, b) => {
+        if (a.healthyScore < b.healthyScore) {
+          return payload === 'ASCENDENT' ? -1 : 1;
+        }
+        if (a.healthyScore > b.healthyScore) {
+          return payload === 'ASCENDENT' ? 1 : -1;
+        }
+        return 0;
+      });
+      return {
+        ...state,
+        actionsRecipes: sortRScore,
       };
     default:
         return state;
