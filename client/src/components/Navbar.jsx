@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 
 import Searchbar from "./Searchbar";
+import SortAZ from "./SortAZ";
 
 import Logo from '../assets/armuCode.png'
 
@@ -27,6 +28,7 @@ export default function Navbar() {
       </nav>
       <nav className='navbarActions'>
           <Searchbar/>
+          <SortAZ/>
           { create ?  <p></p> :          
                               <NavLink to='create/own'>
                                 <button> Create Recipe</button>

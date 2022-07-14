@@ -1,5 +1,11 @@
-
-import { GET_ALL_RECIPES, GET_ALL_DIETS, GET_DETAILS, CLEAN_UP, GET_SEARCHED, POST_RECIPE } from "./actions";
+import {  GET_ALL_RECIPES, 
+          GET_ALL_DIETS, 
+          GET_DETAILS, 
+          CLEAN_UP, 
+          GET_SEARCHED, 
+          POST_RECIPE,
+          GET_SORT_AZ
+        } from "./actions";
 
 const initialState = {
   allRecipes: [],
@@ -41,9 +47,24 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
       }
+    case GET_SORT_AZ:
+      let sortRAZ = [...state.actionsRecipes];
+      sortRAZ.sort((a, b) => {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+          return payload === 'Z to A' ? 1 : -1;
+        }
+        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+          return payload === 'Z to A' ? -1 : 1;
+        }
+        return 0;
+      })
+      return {
+        ...state,
+        actionsRecipes: sortRAZ,
+      };
     default:
         return state;
-    }
+  }
 }
 
 export default reducer 

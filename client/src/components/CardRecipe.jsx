@@ -8,15 +8,17 @@ export default function CardRecipe({id, name, image, summary, healthyScore, Diet
     <div className="cardRecipe">
       <p key={id}></p>
       <h1>{name}</h1>
-      <img className='imageCard' src={image} alt={name} />
       <NavLink to={`/recipe/${id}`} key={id}>
+        <img className='imageCard' src={image} alt={name} />
         <button className='buttonCard'>View Recipe</button>
       </NavLink>
       <div>🩺 Healthy Score:
         <span> {healthyScore}</span>
       </div>
-      {Diets.map(d => {return <ul>{d}</ul>})}
-      <h3>{dishTypes}</h3>
+      {Diets.map(d => {return <ul>{d} </ul>})}
+      <span>------------</span>
+      {dishTypes.map(d => {return <ul>{d} </ul>})}
+
     </div>
   )
 }

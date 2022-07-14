@@ -4,8 +4,8 @@ export default function Loader() {
 
   return (
     <div className='center'>
-      <div class="spinner">
-        <div class="inner">
+      <div className="spinner">
+        <div className="inner">
         </div>
       </div>
     </div>
