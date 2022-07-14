@@ -26,7 +26,7 @@ function App() {
           <RecipeDetails/>
         </Route>
 
-        <Route path='/create'>
+        <Route path='/create/:create'>
           <Navbar/>
           <CreateR/>
         </Route>

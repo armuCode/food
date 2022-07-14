@@ -14,12 +14,12 @@ function validate(input){
   if (!input.image) errors.image = "Image is required";
   if (!/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/.test(input.image)) errors.image = "Url is not valid";
   if (!input.summary) errors.summary = "Summary required";
-  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100)) errors.healthyScore = "healthyScore must be in range 10-100";
+  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100 || input.healthyScore === 0 )) errors.healthyScore = "healthyScore must be in range 10-100";
   if (!input.steps) errors.steps = "steps are required";
   if (input.Diets?.length === 0)
     errors.Diets = "Select at least one diet";
   if (input.dishTypes?.length === 0)
-    errors.genres = "Select at least one dishTypes";
+    errors.dishTypes = "Select at least one dishTypes";
 
   return errors;
 }
@@ -53,10 +53,10 @@ export default function CreateR() {
     name:'',
     image: '',
     summary: '',
-    healthyScore: '',
-    Diets: '',
+    healthyScore: '0',
+    Diets: [],
     dishTypes: [],
-    steps: [{}],
+    steps: [],
   });
 
   const [errors, setErrors] = useState({});
@@ -64,20 +64,33 @@ export default function CreateR() {
 
   function onChange(e) {
     e.preventDefault();
-    setRecipeCreated({
-      ...recipeCreated,
-      [e.target.name]: e.target.value
-    })
-
+    
     setErrors(validate({
       ...recipeCreated,
       [e.target.name]: e.target.value
     }))
 
-    if(e.target.name === 'Diets') {
+    setRecipeCreated({
+      ...recipeCreated,
+      [e.target.name]: e.target.value
+    })
+
+    if (e.target.name === 'Diets'){
       setRecipeCreated({
         ...recipeCreated,
         [e.target.name]: [...recipeCreated.Diets, e.target.value]
+      })
+    }
+    if (e.target.name === 'dishTypes'){
+      setRecipeCreated({
+        ...recipeCreated,
+        [e.target.name]: [...recipeCreated.dishTypes, e.target.value]
+      })
+    }
+    if (e.target.name === 'steps'){
+      setRecipeCreated({
+        ...recipeCreated,
+        [e.target.name]: [e.target.value]
       })
     }
   }
@@ -101,51 +114,55 @@ export default function CreateR() {
   console.log(recipeCreated);
 
   return(
-    <div>
+    <div className="create">
       <br></br>
-      <h1>Create your own Recipe!</h1>
+      <h2>Create your own Recipe!</h2>
       <form onSubmit={(e) => onSubmit(e)}>
 
-        <div>
+        <div className='divInput'>
           <label>name</label>
           <input
+            className="inputCreate"
             placeholder="Write an awesome name"
             type="text"
             name="name"
             onChange={(e) => onChange(e)}
             value={recipeCreated.name}
           />
-          {errors.name && (<p className="errors">{errors.name}</p>)}
+          {errors.name && (<span className="errors">{errors.name}</span>)}
         </div>
 
-        <div>
+        <div className='divInput'>
           <label>image</label>
           <input
+            className="inputCreate"
             placeholder="Find an image on the web"
             type="text"
             name="image"
             onChange={(e) => onChange(e)}
             value={recipeCreated.image}
           />
-          {errors.image && (<p className="errors">{errors.image}</p>)}
+          {errors.image && (<span className="errors">{errors.image}</span>)}
         </div>
 
-        <div>
+        <div className='divInput'>
           <label>summary</label>
           <input
+            className="inputCreate"
             placeholder="Tell us a résumé about your recipe"
             type="text"
             name="summary"
             onChange={(e) => onChange(e)}
             value={recipeCreated.summary}
           />
-          {errors.summary && (<p className="errors">{errors.summary}</p>)}
+          {errors.summary && (<span className="errors">{errors.summary}</span>)}
         </div>
 
-        <div>
-          <label >healthy Score</label>
+        <div className='divInput'>
+          <h4>healthy Score</h4>
+          <labe>0</labe>
           <input
-              className="bar-rating"
+              className="barScore"
               placeholder="from 0 to 100."
               type="range"
               min="0"
@@ -155,13 +172,13 @@ export default function CreateR() {
               onChange={(e) => onChange(e)}
               value={recipeCreated.healthyScore}
             ></input>
-          <label >100</label>
-          {errors.healthyScore && (<p className="errors">{errors.healthyScore}</p>)}
+          <labe>100</labe> {/* labe ??? */}
+          {errors.healthyScore && (<span className="errors">{errors.healthyScore}</span>)}
         </div>
 
-
-        <div>
-          <label >diets......</label>
+        <br></br>
+        <div className='divInput'>
+          <label >diets</label>
           <select
               className="selectors"
               multiple
@@ -173,11 +190,11 @@ export default function CreateR() {
               <option value={diet}>{diet}</option>
             ))}
           </select>
-          {errors.Diets && (<p className="errors">{errors.Diets}</p> ) }
+          {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }
         </div>
 
-        <div>
-          <label >dishTypes......</label>
+        <div className='divInput'>
+          <label >dishTypes</label>
           <select
               className="selectors"
               multiple
@@ -189,19 +206,20 @@ export default function CreateR() {
               <option value={dish}>{dish}</option>
             ))}
           </select>
-          {errors.dishTypes && (<p className="errors">{errors.dishTypes}</p> ) }
+          {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
         </div>
 
-        <div>
+        <div className='divInput'>
           <label>steps</label>
           <input
+            className="inputCreate"
             placeholder="Tell us a résumé about your recipe"
             type="text"
             name="steps"
             onChange={(e) => onChange(e)}
             value={[recipeCreated.steps]}
           />
-          {errors.steps && (<p className="errors">{errors.summary}</p>)}
+          {errors.steps && (<span className="errors">{errors.summary}</span>)}
         </div>
 
         <br></br>

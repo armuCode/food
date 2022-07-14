@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 import Searchbar from "./Searchbar";
 
@@ -8,6 +8,8 @@ import Logo from '../assets/armuCode.png'
 import './CSS/Navbar.css';
 
 export default function Navbar() {
+  const { create } = useParams();
+  
   return (
     <>
       <nav className="navbar">
@@ -25,9 +27,11 @@ export default function Navbar() {
       </nav>
       <nav className='navbarActions'>
           <Searchbar/>
-          <NavLink to='/create'>
-            <button> Create a videogame</button>
-          </NavLink>
+          { create ?  <p></p> :          
+                              <NavLink to='create/own'>
+                                <button> Create Recipe</button>
+                              </NavLink> 
+          }
       </nav>
     </>
   );

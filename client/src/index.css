@@ -106,3 +106,7 @@ a:link {
   color: var(--gold) ;
   text-decoration: none;
 }
+
+img{
+  max-width: 100%;
+}

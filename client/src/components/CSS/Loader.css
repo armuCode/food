@@ -1,38 +1,39 @@
-/* From uiverse.io by @G4b413l */
-.scanner h1 {
-  color: transparent;
-  font-size: 1.4rem;
-  position: relative;
-  overflow: hidden;
- }
- 
- .scanner h1::before {
-  content: "Loading...";
+
+.center {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  border-right: 4px solid #17FEFF;
-  overflow: hidden;
-  color: var(--black);
-  animation: load91371 2s linear infinite;
+  top: 50%;
+  left: 50%;
+}
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: var(--gold);
+  display: grid;
+  place-items: center;
+  animation: zoomin 1.5s infinite alternate-reverse;
+  position: relative;
  }
  
- @keyframes load91371 {
-  0%, 10%, 100% {
-   width: 0;
+ .inner {
+  background-color: var(--white);
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+ }
+ 
+ @keyframes zoomin {
+  0% {
+   transform: scale(1);
+   box-shadow: 0 0 100px 20px var(--white);
   }
  
-  10%,20%,30%,40%,50%,60%,70%,80%,90%,100% {
-   border-right-color: transparent;
-  }
- 
-  11%,21%,31%,41%,51%,61%,71%,81%,91% {
-   border-right-color: var(--manatee);
-  }
- 
-  60%, 80% {
-   width: 100%;
+  100% {
+   transform: scale(1.5);
+   box-shadow: 0 0 100px 20px var(--white);
   }
  }
+ 
+ 

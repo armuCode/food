@@ -83,7 +83,7 @@ export function getSearchedRecipes (search) {
 
 export function postRecipe (payload) {
   return async function(dispatch){
-    return await axios.get(`${REACT_APP_HOST}/recipe/create`, payload)
+    return await axios.post(`${REACT_APP_HOST}/recipe/create`, payload)
     .then(rAxios => {
       dispatch({
         type: POST_RECIPE,
