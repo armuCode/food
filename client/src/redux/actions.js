@@ -9,6 +9,8 @@ export const GET_SEARCHED = 'GET_SEARCHED';
 export const POST_RECIPE = 'POST_RECIPE';
 export const SORT_AZ = 'SORT_AZ';
 export const SORT_SCORE = 'SORT_SCORE';
+export const FILTER_BY_DIET = 'FILTER_BY_DIET';
+export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
 
 export function getAllRecipes() {
   return async function(dispatch){
@@ -110,3 +112,18 @@ export function sortScore (sort) {
     payload: sort
   }
 }
+
+export function filterByDiet(payload){
+  return {
+    type: FILTER_BY_DIET,
+    payload
+  }
+}
+
+export function filterByOrigin(payload){
+  return {
+    type: FILTER_BY_ORIGIN,
+    payload
+  }
+}
+

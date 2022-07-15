@@ -5,7 +5,9 @@ import {  GET_ALL_RECIPES,
           GET_SEARCHED, 
           POST_RECIPE,
           SORT_AZ,
-          SORT_SCORE
+          SORT_SCORE,
+          FILTER_BY_DIET,
+          FILTER_BY_ORIGIN
 } from "./actions";
 
 const initialState = {
@@ -74,10 +76,19 @@ export function reducer (state = initialState, { type, payload /* action */}){
         }
         return 0;
       });
+    case FILTER_BY_DIET:
+      let allRecipes = state.allRecipes
+      let arrayFilterDiet = payload === 'All' ? allRecipes : allRecipes.filter(recipe => recipe.Diets.includes(payload))
       return {
         ...state,
-        actionsRecipes: sortRScore,
+        actionsRecipes: arrayFilterDiet,
       };
+    case FILTER_BY_ORIGIN:
+      let arrayFilterOrigin = payload === 'DB' ? state.allRecipes.filter(r => r.id.length > 30 ) : payload === 'API' ? state.allRecipes.filter(r => r.id.length < 30 ) : state.allRecipes
+      return {
+        ...state,
+        actionsRecipes: arrayFilterOrigin,
+      }
     default:
         return state;
   }

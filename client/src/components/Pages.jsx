@@ -15,8 +15,8 @@ export default function Pages({recipesPerPage, actionsRecipes, pages, currentPag
 
   return (
     !actionsRecipes === [] ? <Loader /> :
-    <nav>
-      <ul>
+    <nav >
+      <ul className="pages">
         <button
           onClick={()=>setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)}
         >←PREV</button>

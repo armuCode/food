@@ -14,12 +14,12 @@ function validate(input){
   if (!input.image) errors.image = "Image is required";
   if (!/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/.test(input.image)) errors.image = "Url is not valid";
   if (!input.summary) errors.summary = "Summary required";
-  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100 || input.healthyScore === 0 )) errors.healthyScore = "healthyScore must be in range 10-100";
+  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100 || input.healthyScore === 0 )) errors.healthyScore = "must be in range 10-100";
   if (!input.steps) errors.steps = "steps are required";
   if (input.Diets?.length === 0)
     errors.Diets = "Select at least one diet";
   if (input.dishTypes?.length === 0)
-    errors.dishTypes = "Select at least one dishTypes";
+    errors.dishTypes = "Select at least one";
 
   return errors;
 }
@@ -78,13 +78,13 @@ export default function CreateR() {
     if (e.target.name === 'Diets'){
       setRecipeCreated({
         ...recipeCreated,
-        [e.target.name]: [...recipeCreated.Diets, e.target.value]
+        [e.target.name]: [...new Set (recipeCreated.Diets), e.target.value]
       })
     }
     if (e.target.name === 'dishTypes'){
       setRecipeCreated({
         ...recipeCreated,
-        [e.target.name]: [...recipeCreated.dishTypes, e.target.value]
+        [e.target.name]: [...new Set (recipeCreated.dishTypes), e.target.value]
       })
     }
     if (e.target.name === 'steps'){
@@ -115,7 +115,6 @@ export default function CreateR() {
 
   return(
     <div className="create">
-      <br></br>
       <h2>Create your own Recipe!</h2>
       <form onSubmit={(e) => onSubmit(e)}>
 
@@ -160,6 +159,7 @@ export default function CreateR() {
 
         <div className='divInput'>
           <h4>healthy Score</h4>
+          <h5>{recipeCreated.healthyScore}</h5>
           <labe>0</labe>
           <input
               className="barScore"
@@ -177,6 +177,11 @@ export default function CreateR() {
         </div>
 
         <br></br>
+          <div>
+            {recipeCreated.Diets.length > 0 ? recipeCreated.Diets.map(diet =>(
+              <span className="choose">{ `•${diet} ` }</span>
+            )) : <br></br>}
+          </div>
         <div className='divInput'>
           <label >diets</label>
           <select
@@ -192,7 +197,12 @@ export default function CreateR() {
           </select>
           {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }
         </div>
-
+        
+          <div>
+            {recipeCreated.dishTypes.length > 0 ? recipeCreated.dishTypes.map(dish =>(
+              <span className="choose">{ `•${dish} ` }</span>
+            )) : <br></br>}
+          </div>
         <div className='divInput'>
           <label >dishTypes</label>
           <select
@@ -213,13 +223,13 @@ export default function CreateR() {
           <label>steps</label>
           <input
             className="inputCreate"
-            placeholder="Tell us a résumé about your recipe"
+            placeholder="Step by step"
             type="text"
             name="steps"
             onChange={(e) => onChange(e)}
             value={[recipeCreated.steps]}
           />
-          {errors.steps && (<span className="errors">{errors.summary}</span>)}
+          {errors.steps && (<div className="errors">{errors.summary}</div>)}
         </div>
 
         <br></br>

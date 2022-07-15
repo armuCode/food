@@ -1,20 +1,31 @@
 .create{
-  top: 20rem ;
-  max-width: 50rem;      
+  top: 20rem;
+  left: 50%;
+  max-width: 90rem;      
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center;
   align-items: center;
   display: grid;
   flex-direction: row;
   display: grid;
+  text-align: center;
+  margin: 0rem auto;
+  padding: 0rem;
+  -webkit-font-smoothing: antialiased;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url(https://c8.alamy.com/comp/2E1MYN0/various-food-seamless-pattern-hand-drawn-background-texture-2E1MYN0.jpg);
 }
 
 .divInput{
   margin: 0rem;
-  padding: 0rem;
+  padding: 0.2rem;
   height: 2.5rem;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -23,7 +34,7 @@
 }
 
 .create h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 1rem;
   padding: 0rem;
@@ -33,6 +44,15 @@
 .create h4 {
   padding: 0rem;
   margin: 0rem;
+  font-size: 1rem;
+}
+
+.create h5 {
+  padding: 0rem;
+  margin: 0rem auto;
+  background-color: var(--gold);
+  width: 53.5%;
+  align-self: center;
 }
 
 
@@ -53,15 +73,20 @@
   padding: 0.5rem;
   border-radius: 0px;
   margin-bottom: 2rem;
+  font-size: 0.5rem;
+}
+
+option {
+  font-size: 0.5rem;
+  height: 1rem;
 }
 
 .barScore{
   height: 1rem;
   width: 53.5%;
-  padding: 0.5rem;
+  padding: 0rem;
   margin: 0rem;
   border-radius: 0px;
-  margin-bottom: 2rem;
 }
 
 .selectors{
@@ -70,7 +95,7 @@
   height: 2rem;
   padding: 0.5rem;
   border-radius: 0px;
-  margin-bottom: 2rem;
+  font-size: 0.5rem;
 }
 
 .errors{
@@ -81,5 +106,6 @@
   position: absolute;
   right: -2rem;
   top: 1rem;
-  
+  font-weight: bold;
 }
+

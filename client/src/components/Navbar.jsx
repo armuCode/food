@@ -4,6 +4,9 @@ import { NavLink, useParams } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import SortAZ from "./SortAZ";
 import SortScore from "./SortScore";
+import FilterDiet from "./FilterDiet";
+import FilterOrigin from "./FilterOrigin";
+import FClear from "./FClear";
 
 import Logo from '../assets/armuCode.png'
 
@@ -28,14 +31,21 @@ export default function Navbar() {
         </menu>
       </nav>
       <nav className='navbarActions'>
+          <div>
+            <FilterDiet/>
+            <FilterOrigin/>
+          </div>
+          <div>
+            <SortAZ/>
+            <SortScore/>
+          </div>
           <Searchbar/>
-          <SortAZ/>
-          <SortScore/>
           { create ?  <p></p> :          
                               <NavLink to='create/own'>
                                 <button> Create Recipe</button>
                               </NavLink> 
           }
+          <FClear/>
       </nav>
     </>
   );

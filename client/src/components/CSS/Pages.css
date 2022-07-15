@@ -1,3 +1,13 @@
+.pages {
+  gap: 1rem;
+  margin: 1rem;
+  padding: 0rem;
+}
+
+.pages button {
+  gap: 1rem;
+  margin: 0.2rem;
+}
 .active{
   background-color: black;
   color: white;
