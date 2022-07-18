@@ -17,8 +17,8 @@ export default function FilterDiet() {
   return(
     <div>
       <select onChange={e => handleFilterByOrigin(e)}>
-        <option name='-Select one-' disabled selected>▼ Filter by Origin</option>
-        <option value='All'>All</option>
+        <option name='-Select one-' disabled selected>Filter by Origin</option>
+        <option value='All'>All recipes</option>
         <option value='DB'>Created</option>
         <option value='API'>API</option>
       </select> 

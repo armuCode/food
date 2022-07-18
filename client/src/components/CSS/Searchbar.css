@@ -1,15 +1,15 @@
 .form {
   --width-of-input: 200px;
   --border-height: 1px;
-  --border-before-color: var(--white);
-  --border-after-color: var(--gold);
+  --border-before-color: var(--dark-blue);
+  --border-after-color: var(--yellow);
   --input-hovered-color: var(--white);
   position: relative;
   width: var(--width-of-input);
  }
  /* styling of Input */
  .input {
-  color: var(--black);
+  color: var(--dark-blue);
   font-size: 0.9rem;
   background-color: transparent;
   width: 100%;

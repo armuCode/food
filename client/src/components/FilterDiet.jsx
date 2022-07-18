@@ -22,7 +22,8 @@ export default function FilterDiet() {
   return(
     <div>
       <select onChange={e => handleFilterByDiet(e)}>
-        <option name='-Select one-' disabled selected>▼ Filter by Diets</option>
+        <option name='-Select one-' disabled selected>Filter by Diets</option>
+        <option value="All">All Diets</option>
         {allDiets.map(diet => {
           return (
             <option value={diet}>{diet}</option>

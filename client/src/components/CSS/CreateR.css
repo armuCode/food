@@ -20,7 +20,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-image: url(https://c8.alamy.com/comp/2E1MYN0/various-food-seamless-pattern-hand-drawn-background-texture-2E1MYN0.jpg);
+  background-image: url(https://c8.alamy.com/comp/2E1MYN0/various-food-seamless-pattern-hand-drawn-background-texture-2E1MYN0.jpg); 
+  z-index: -1;
+}
+
+.createR {
+  z-index: 1;
 }
 
 .divInput{
@@ -38,7 +43,7 @@
   font-weight: bold;
   margin: 1rem;
   padding: 0rem;
-  color: var(--black);
+  color: var(--dark-blue);
 }
 
 .create h4 {
@@ -50,9 +55,10 @@
 .create h5 {
   padding: 0rem;
   margin: 0rem auto;
-  background-color: var(--gold);
+  background-color: var(--dark-blue);
   width: 53.5%;
   align-self: center;
+  color: var(--white);
 }
 
 
@@ -61,7 +67,7 @@
   font-weight: bold;
   margin: 0.5rem;
   padding: 0rem;
-  color: var(--black);
+  color: var(--dark-blue);
   position: absolute;
   top: 0rem;
   left: 0rem;

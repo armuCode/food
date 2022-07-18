@@ -3,18 +3,18 @@ const db = require("../db");
 const { Diet, Recipe } = require("../db");
 
 const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
-const { API_KEY2, API_KEY3 } = process.env;
+const { API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY6 } = process.env;
 const queryUrl = '&addRecipeInformation=true&number='
-const numberR = 3
+const nR = 100
 
 const getApiData = async () => {  
   try {
     let apiUrl = await axios.get(
-      `${url}${API_KEY3}${queryUrl}${numberR}`
+      `${url}${API_KEY6}${queryUrl}${nR}`
     );
     
     const apiData = apiUrl.data.results.map((recipes) => {
-       
+      
       return {
         id: recipes.id.toString(),
         name: recipes.title.toLowerCase(), 
@@ -39,7 +39,7 @@ const getApiData = async () => {
     console.error(
       "\x1b[43m", '---Error during getApiData---', error.response.data
     );
-    throw new Error ('BackEnd-Recipes', 'No se cargaron las recetas')
+    throw new Error ('Failed to BackEnd-Recipes',)
   }
 };
 

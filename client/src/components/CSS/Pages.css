@@ -7,8 +7,19 @@
 .pages button {
   gap: 1rem;
   margin: 0.2rem;
+  max-width: 4rem;
+  max-height: 1.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+    font-size: 0.2rem;
 }
 .active{
-  background-color: black;
-  color: white;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.active:hover{
+  background-color: var(--dark-blue);
+  color: var(--white);
 }

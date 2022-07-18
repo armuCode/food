@@ -1,4 +1,5 @@
-import {  GET_ALL_RECIPES, 
+import {  GET_ALL_RECIPES,
+          RECIPES_LOADED,
           GET_ALL_DIETS, 
           GET_DETAILS, 
           CLEAN_UP, 
@@ -25,6 +26,11 @@ export function reducer (state = initialState, { type, payload /* action */}){
         ...state,
         allRecipes: payload,
         actionsRecipes: payload,
+      }
+    case RECIPES_LOADED:
+      return {
+        ...state,
+        actionsRecipes: state.allRecipes,
       }
     case GET_ALL_DIETS:
       return {
@@ -76,6 +82,10 @@ export function reducer (state = initialState, { type, payload /* action */}){
         }
         return 0;
       });
+      return {
+        ...state,
+        actionsRecipes:sortRScore
+      }
     case FILTER_BY_DIET:
       let allRecipes = state.allRecipes
       let arrayFilterDiet = payload === 'All' ? allRecipes : allRecipes.filter(recipe => recipe.Diets.includes(payload))

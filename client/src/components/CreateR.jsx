@@ -115,8 +115,8 @@ export default function CreateR() {
 
   return(
     <div className="create">
+      <form className='createR' onSubmit={(e) => onSubmit(e)}>
       <h2>Create your own Recipe!</h2>
-      <form onSubmit={(e) => onSubmit(e)}>
 
         <div className='divInput'>
           <label>name</label>

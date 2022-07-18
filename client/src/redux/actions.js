@@ -2,6 +2,7 @@ const axios = require('axios');
 const { REACT_APP_HOST } = process.env;
 
 export const GET_ALL_RECIPES = 'GET_ALL_RECIPES';
+export const RECIPES_LOADED = 'RECIPES_LOADED';
 export const GET_ALL_DIETS = 'GET_ALL_DIETS';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_UP = 'CLEAN_UP';
@@ -25,6 +26,12 @@ export function getAllRecipes() {
       console.error(`Error in getAllRecipes`, err.response.data);
       return alert(err);
     })
+  }
+}
+
+export function getAllRecipesLoaded() {
+  return {
+    type: RECIPES_LOADED,
   }
 }
 

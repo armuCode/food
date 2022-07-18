@@ -18,17 +18,21 @@ export default function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <NavLink to="/home">
-          <img className='logo' 
-            src={Logo} 
-            width="50" height="50" 
-            alt="logo armuCode" 
+        <img 
+          src={Logo} 
+          alt="armuCode" 
+          className="navbar-logo" 
+          width="50" height="50"
           />
-        </NavLink>
-        <menu className="tabs">
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-        </menu>
+        <label>
+        <input type="checkbox"/>
+        <span class="menu"> <span class="hamburger"></span> </span>
+        <ul>
+        <li> <a href="#">Home</a> </li>
+        <li> <a href="#">About</a> </li>
+        <li> <a href="#">Contact</a> </li>
+        </ul>
+        </label>
       </nav>
       <nav className='navbarActions'>
           <div>
@@ -39,13 +43,17 @@ export default function Navbar() {
             <SortAZ/>
             <SortScore/>
           </div>
-          <Searchbar/>
-          { create ?  <p></p> :          
-                              <NavLink to='create/own'>
-                                <button> Create Recipe</button>
-                              </NavLink> 
+
+          
+          { create ?  <p></p> :
+          <div>
+            <NavLink to='create/own'>
+              <button className="buttonCreate"> Create Recipe</button>
+            </NavLink> 
+            <FClear/>
+          </div>          
           }
-          <FClear/>
+          <Searchbar/>
       </nav>
     </>
   );

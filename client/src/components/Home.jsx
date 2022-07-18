@@ -5,22 +5,16 @@ import { useHistory, NavLink } from "react-router-dom";
 import { getAllRecipes, getAllDiets } from "../redux/actions";
 
 import Pages from "../components/Pages";
-import CardRecipe from "../components/CardRecipe";
+import CardR from "../components/CardR";
 import Loader from "./Loader";
 
 import './CSS/Home.css';
 
+
 export default function Home() {
 
-  const dispatch = useDispatch();
-  
   let actionsRecipes = useSelector(state => state.actionsRecipes);
   
-  useEffect(() => {
-    actionsRecipes.length === 0 ? dispatch(getAllRecipes()) : '';
-  }, [dispatch])
-  
-
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(4);
   const indexOfLastRecipe = currentPage * recipesPerPage;
@@ -46,7 +40,7 @@ export default function Home() {
             <ul className="cardSize">
               {currentRecipes.map(recipe => {
                 return(
-                    <CardRecipe
+                    <CardR
                       key={recipe.id}
                       id={recipe.id}
                       name={recipe.name}

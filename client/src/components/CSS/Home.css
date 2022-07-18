@@ -1,7 +1,7 @@
 .cardSize{
   margin: 0rem;
   padding: 0rem;
-  gap: 0.5rem;
+  gap: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   justify-content: space-around;
@@ -10,7 +10,6 @@
   flex-direction: row;
   color: var(--black);
   align-items: center;
-
 }
 
 a:visited {
