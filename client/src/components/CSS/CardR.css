@@ -1,7 +1,7 @@
 /* From uiverse.io by @alexruix */
 .card {
   width: 20rem;
-  height: 30rem;
+  height: 25rem;
   background: var(--white);
   position: relative;
   border: 2px solid var(--gray);
@@ -14,13 +14,32 @@
 }
 
 .card-details {
-  color: black;
   height: 100%;
   gap: .5em;
   display: grid;
   place-content: center;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
+}
+
+.text-title {
+ font-size: 2.3rem;
+ margin-top: 1.2rem;
+ font-weight: bold;
+ padding-inline: 0rem;
+ font-family: 'Bonheur Royale', cursive;
+ font-weight: 900;
+ margin-inline: 0rem;
+ padding-inline: 2rem;
+ margin-bottom: 0rem;
+ padding-bottom: 0.5rem ;
+ line-height: 1.7rem;
+ position: absolute;
+ bottom: 20rem;
+ background-color: white;
+ opacity: 0.8;
+ padding-top: 0.5rem;
+ width: 100%;
 }
 
 .info {
@@ -41,7 +60,7 @@
 .card-details p {
  font-size: 0.5rem;
  position: absolute;
- padding: 0rem;
+ padding-inline: 1rem;
  margin: 0rem;
 }
 
@@ -86,11 +105,6 @@
  }
  
  /*Text*/
- .text-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  padding-inline: 0rem;
- }
  
  /*Hover*/
  .card:hover {
@@ -116,7 +130,7 @@
   
 .diets {
   position: absolute;
-  top:25rem;
+  top:20rem;
   left: 0rem;
   margin: 0 auto;
   padding: 0 auto;
@@ -152,9 +166,8 @@ right: 1rem;
 }
 
 .summaryC{
-  margin-left: 0.5rem;
-  margin-right: 1rem;
-  margin-top: 0.5rem;
+  padding-inline: 0.5rem;
+  margin-top: 1rem;
   flex: auto;
   display: flex;
 }

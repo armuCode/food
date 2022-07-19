@@ -6,9 +6,8 @@
   --yellow: #FFC600;
   --black: #0A0A0A;
   --white:#FFFFFF;
-
-  font-family: 'Raleway', sans-serif;
-
+  
+  font-family: 'Bonheur Royale', cursive;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -26,6 +25,7 @@ body {
 
 code {
   font-family: 'Raleway', sans-serif;
+  font-family: 'Bonheur Royale', cursive;
 }
 
 
@@ -73,7 +73,10 @@ button:after {
 }
 
  option {
-  background-color: var(--white);
+  background-color: transparent;
+  border-bottom: var(--dark-blue) solid 2px;
+  color: var(--dark-blue);
+  font-family: 'Raleway', sans-serif;
  }
 
  .input-group {
@@ -81,20 +84,24 @@ button:after {
  }
  
  input {
-  background-color: var(--white);
-  color:var(--white);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  height: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--dark-blue) solid 2px;
+  color: var(--dark-blue);
+  font-family: sans-serif;
+  height: 2rem;
+  font-family: 'Raleway', sans-serif;
+
  }
 
  select {
   background-color: transparent;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
   padding-inline-end: 1rem;
   font-size: 0.5rem;
   size: 1rem;
   height: 1rem;
-  width: 10rem;
+  width: 8rem;
   color: var(--dark-blue);
   border: none;
  }

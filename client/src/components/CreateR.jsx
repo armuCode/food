@@ -14,10 +14,10 @@ function validate(input){
   if (!input.image) errors.image = "Image is required";
   if (!/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/.test(input.image)) errors.image = "Url is not valid";
   if (!input.summary) errors.summary = "Summary required";
-  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100 || input.healthyScore === 0 )) errors.healthyScore = "must be in range 10-100";
-  if (!input.steps) errors.steps = "steps are required";
+  if (input.healthyScore && (input.healthyScore < 10 || input.healthyScore > 100 || input.healthyScore === 0 )) errors.healthyScore = "field in range 10-100";
+  if (input.steps.length === 0) errors.steps = "steps are required";
   if (input.Diets?.length === 0)
-    errors.Diets = "Select at least one diet";
+    errors.Diets = "Select at least one";
   if (input.dishTypes?.length === 0)
     errors.dishTypes = "Select at least one";
 
@@ -157,6 +157,7 @@ export default function CreateR() {
           {errors.summary && (<span className="errors">{errors.summary}</span>)}
         </div>
 
+        <br></br>
         <div className='divInput'>
           <h4>healthy Score</h4>
           <h5>{recipeCreated.healthyScore}</h5>
@@ -174,6 +175,45 @@ export default function CreateR() {
             ></input>
           <labe>100</labe> {/* labe ??? */}
           {errors.healthyScore && (<span className="errors">{errors.healthyScore}</span>)}
+        </div>
+        
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div className='divInput'>
+          <label>steps</label>
+          <input
+            className="inputCreate"
+            placeholder="Step by step"
+            type="text"
+            name="steps"
+            onChange={(e) => onChange(e)}
+            value={[recipeCreated.steps]}
+          />
+          {errors.steps && (<div className="errors">{errors.steps}</div>)}
+        </div>
+
+        <br></br>
+        <div>
+            {recipeCreated.dishTypes.length > 0 ? recipeCreated.dishTypes.map(dish =>(
+              <span className="choose">{ `•${dish} ` }</span>
+            )) : <br></br>}
+          </div>
+        <div className='divInput'>
+          <label >dishTypes</label>
+          <select
+              className="selectors"
+              multiple
+              name="dishTypes"
+              onChange={(e) => onChange(e)}
+          >
+            <option name="-Select one-" disabled selected> -Select one- </option>
+            {dishTypes.map(dish =>(
+              <option value={dish}>{dish}</option>
+            ))}
+          </select>
+          {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
         </div>
 
         <br></br>
@@ -197,44 +237,8 @@ export default function CreateR() {
           </select>
           {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }
         </div>
-        
-          <div>
-            {recipeCreated.dishTypes.length > 0 ? recipeCreated.dishTypes.map(dish =>(
-              <span className="choose">{ `•${dish} ` }</span>
-            )) : <br></br>}
-          </div>
-        <div className='divInput'>
-          <label >dishTypes</label>
-          <select
-              className="selectors"
-              multiple
-              name="dishTypes"
-              onChange={(e) => onChange(e)}
-          >
-            <option name="-Select one-" disabled selected> -Select one- </option>
-            {dishTypes.map(dish =>(
-              <option value={dish}>{dish}</option>
-            ))}
-          </select>
-          {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
-        </div>
 
-        <div className='divInput'>
-          <label>steps</label>
-          <input
-            className="inputCreate"
-            placeholder="Step by step"
-            type="text"
-            name="steps"
-            onChange={(e) => onChange(e)}
-            value={[recipeCreated.steps]}
-          />
-          {errors.steps && (<div className="errors">{errors.summary}</div>)}
-        </div>
-
-        <br></br>
-        <br></br>
-        {recipeCreated.name != '' && Object.keys(errors).length === 0 ? <button> Create Recipe </button> : ''}
+        {recipeCreated.name != '' && Object.keys(errors).length === 0 ? <button className="ok"> Create Recipe </button> : ''}
 
       </form>
     </div>

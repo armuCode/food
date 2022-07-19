@@ -30,17 +30,21 @@ export default function RecipeDetails () {
     return (
       <div className="detailsR">
         <div className="div2">
-          <h2 className="titleD">{name}</h2>
+          <h2 className="titleD">{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
         </div>
           <img className="imageD" src={image} alt={name} />
         
 
         <div className="div3">
           <img src={Rate} alt='HealthyScore' />
-          <h3>{healthyScore}</h3>
+          <h4 className="hs">healthy Score</h4>
+          <h3 className="hs">{healthyScore}</h3>
         </div>
         
+        <div className="div4">
           <p className="summaryD">{summary}</p>
+        </div>
+
           <div className="div5">
             <br></br>
             <br></br>

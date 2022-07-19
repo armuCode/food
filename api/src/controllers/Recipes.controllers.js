@@ -3,14 +3,14 @@ const db = require("../db");
 const { Diet, Recipe } = require("../db");
 
 const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
-const { API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY6 } = process.env;
+const { API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5, API_KEY7 } = process.env;
 const queryUrl = '&addRecipeInformation=true&number='
-const nR = 100
+const nR = 5
 
 const getApiData = async () => {  
   try {
     let apiUrl = await axios.get(
-      `${url}${API_KEY6}${queryUrl}${nR}`
+      `${url}${API_KEY1}${queryUrl}${nR}`
     );
     
     const apiData = apiUrl.data.results.map((recipes) => {

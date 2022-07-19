@@ -1,7 +1,6 @@
 .create{
   top: 20rem;
   left: 50%;
-  max-width: 90rem;      
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,12 +16,11 @@
   padding: 0rem;
   -webkit-font-smoothing: antialiased;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   background-attachment: fixed;
-  background-image: url(https://c8.alamy.com/comp/2E1MYN0/various-food-seamless-pattern-hand-drawn-background-texture-2E1MYN0.jpg); 
-  z-index: -1;
+  background-image: radial-gradient(var(--yellow), var(--dark-blue));
+  background-image: radial-gradient(circle at top left, var(--dark-blue), var(--gray), var(--white));
 }
+
 
 .createR {
   z-index: 1;
@@ -63,7 +61,7 @@
 
 
 .create label {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 0.5rem;
   padding: 0rem;
@@ -75,7 +73,7 @@
 
 .inputCreate {
   width: 50%;
-  height: 1rem;
+  height: 2rem;
   padding: 0.5rem;
   border-radius: 0px;
   margin-bottom: 2rem;
@@ -83,12 +81,15 @@
 }
 
 option {
-  font-size: 0.5rem;
-  height: 1rem;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 0rem;
+  padding: 0.2rem;
+  padding-left: 0.5rem;
 }
 
 .barScore{
-  height: 1rem;
+  height: 3rem;
   width: 53.5%;
   padding: 0rem;
   margin: 0rem;
@@ -96,7 +97,6 @@ option {
 }
 
 .selectors{
-  height: 1rem;
   width: 53.5%;
   height: 2rem;
   padding: 0.5rem;
@@ -107,11 +107,23 @@ option {
 .errors{
   font-size: 0.5rem;
   padding: 0rem;
-  margin-top: 0rem;
   color: red;
   position: absolute;
-  right: -2rem;
-  top: 1rem;
+  left: 19rem;
+  top: 0.5rem;
   font-weight: bold;
 }
 
+.ok {
+  background-color: var(--yellow);
+}
+
+.choose {
+  color: var(--dark-blue);
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: oblique;
+  padding: 0.1rem;
+  border-radius: 0px;
+  margin: 0.2rem;
+}

@@ -18,43 +18,45 @@ export default function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <img 
-          src={Logo} 
-          alt="armuCode" 
-          className="navbar-logo" 
-          width="50" height="50"
-          />
-        <label>
-        <input type="checkbox"/>
-        <span class="menu"> <span class="hamburger"></span> </span>
-        <ul>
-        <li> <a href="#">Home</a> </li>
-        <li> <a href="#">About</a> </li>
-        <li> <a href="#">Contact</a> </li>
-        </ul>
-        </label>
+        <NavLink to='/home'>
+            <img 
+              src={Logo} 
+              alt="armuCode" 
+              className="navbar-logo" 
+              width="50" height="50"
+              />
+        </NavLink>
       </nav>
-      <nav className='navbarActions'>
-          <div>
+        <label>
+            <input type="checkbox"/>
+            <span class="menu"> <span class="hamburger"></span> </span>
+            <ul>
+            <li> <a className="aHome" href="/home">Home</a> </li>
+            <li> <a className="aHome" href="/about">About</a> </li>
+            <li> <a className="aHome" href="/contact">Contact</a> </li>
+            </ul>
+        </label>
+      <menu className='navbarActions'>
+      <div>
+            <FClear/>
             <FilterDiet/>
             <FilterOrigin/>
-          </div>
-          <div>
+      </div>
+      <div>
+            <br></br>
             <SortAZ/>
             <SortScore/>
-          </div>
-
-          
-          { create ?  <p></p> :
-          <div>
+      </div>
+      <br></br>          
+          { create ?  '' :
+          <div className="buttonsN">
             <NavLink to='create/own'>
               <button className="buttonCreate"> Create Recipe</button>
             </NavLink> 
-            <FClear/>
           </div>          
           }
           <Searchbar/>
-      </nav>
+      </menu>
     </>
   );
 }

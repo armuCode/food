@@ -16,9 +16,9 @@ export default function CardR({id, name, image, summary, healthyScore, Diets, di
         <img className='vector'  src= {DietVector} alt='Diets' />
         <img className='rate'  src= {Rate} alt='Diets' />
         <div className='info'>
-          <h2 class="text-title">{name}</h2>
+          <h2 class="text-title">{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
           <div className='summaryC'>
-            <p> { `${summary.slice(0, 100)}...` }</p>
+            <p> { `${summary.slice(0, 90)}...` }</p>
           </div>  
         </div>
           <div className='diets'>

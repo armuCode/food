@@ -10,20 +10,20 @@
   flex-direction: row;
   color: var(--white);
   align-items: right;
-  height: 3.8rem;
+  height: 3.3rem;
   z-index: -1;
+  position: sticky;
 }
 
 .logo {
   margin-left: 0rem;
-  margin-right: 0rem;
+  margin-right: -151px;
   margin-top: 0rem;
   margin-bottom: 0rem;
   padding-top: 0rem;
   background-color: var(--dark-blue);
   z-index: -1;
 }
-
 
 .tabs{
   width: 20rem;
@@ -32,8 +32,6 @@
   flex-wrap: wrap;
   align-items: right;
 }
-
-
 
 .navbarActions {
   margin: 0rem;
@@ -48,6 +46,7 @@
   color: var(--white);
   align-items: center;
   z-index: 1;
+  position: sticky
 }
 
 .buttonCreate {
@@ -62,28 +61,17 @@
 *, *:before, *:after 
 { box-sizing: border-box; }
 
-html { font-size: 18px; }
-
-body {
-  color: #e0e4cc;
-  font-size: 1.2em;
-  line-height: 1.6;
-  background: #fa6900;
-  overflow-x: hidden;
-}
 
 label .menu {
   position: absolute;
-  right: -100px;
-  top: -100px;
+  right: 0rem;
+  margin-left: 5rem;
+  top: -110px;
   z-index: 100;
   width: 200px;
-  height: 200px;
-  background: #FFF;
-  border-radius: 50% 50% 50% 50%;
+  background: var(--gray);
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
-  box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
   cursor: pointer;
   
 }
@@ -92,9 +80,9 @@ label .hamburger {
   position: absolute;
   top: 135px;
   left: 50px;
-  width: 30px;
-  height: 2px;
-  background: #69D2e7;
+  width: 40px;
+  height: 4px;
+  background: var(--white);
   display: block;
   -webkit-transform-origin: center;
   transform-origin: center;
@@ -110,7 +98,7 @@ label .hamburger:after, label .hamburger:before {
   display: block;
   width: 100%;
   height: 100%;
-  background: #69d2e7;
+  background: var(--white);
 }
 
 label .hamburger:before { top: -10px; }
@@ -120,15 +108,13 @@ label .hamburger:after { bottom: -10px; }
 label input { display: none; }
 
 label input:checked + .menu {
-  box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
-  border-radius: 0;
-  
+  box-shadow: 0 0 0 100vw var(--dark-blue), 0 0 0 100vh var(--dark-blue);
+  border-radius: 0;  
 }
 
 label input:checked + .menu .hamburger {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-  
 }
 
 label input:checked + .menu .hamburger:after {
