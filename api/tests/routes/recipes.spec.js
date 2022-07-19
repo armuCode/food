@@ -12,26 +12,42 @@ describe("Recipe routes", () => {
     agent = session(app);
   });
 
-  describe("/recipes/:idReceta", () => {
+  describe('GET /recipes/search/:name', () => {
+    it('should get 200', () =>
+      agent.get('/recipes/search/rice').expect(200)
+    );
+  });
+
+  describe("/recipe/:idReceta", () => {
     it("deberia devolver un 200 y id, titulo y descripcion en la respuesta", async () => {
       await agent
-        .get("/recipes/12")
+        .get("/recipe/716426")
         .expect("Content-Type", /json/)
         .expect(200)
         .then((res) => {
-          expect(res.body).to.have.property("idApi");
+          expect(res.body).to.have.property("id");
             expect(res.body).to.have.property("name");
             expect(res.body).to.have.property("summary");
         });
     });
   });
-  describe("/recipe", () => {
+
+  describe("/recipe/create", () => {
     it("deberia devolver la receta creada con un id en formato UUID", async () => {
       const response = await agent
-        .post("/recipe")
-        .send({ name: "tortilla de acelga", summary: "comida no muy rica", diets: "vegetarian" });
-      expect(response.status).to.eql(200);
-      
+        .post("/recipe/create")
+        .send({ 
+          name: "Test back End",
+          image: "https://i.blogs.es/87930e/comidas-ricas/840_560.jpg",
+          summary: "esto es una prueba",
+          healthyScore: 87,
+          Diets: ["gluten free", "vegetarian", "vegan", "no la tengo"],
+          dishTypes: ["side dish"],
+          steps: [{}]
+        });
+      expect(response.status).to.eql(201);
     });
   });
+
 });
+

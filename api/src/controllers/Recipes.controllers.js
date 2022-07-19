@@ -10,7 +10,7 @@ const nR = 5
 const getApiData = async () => {  
   try {
     let apiUrl = await axios.get(
-      `${url}${API_KEY1}${queryUrl}${nR}`
+      `${url}${API_KEY3}${queryUrl}${nR}`
     );
     
     const apiData = apiUrl.data.results.map((recipes) => {

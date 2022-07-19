@@ -9,7 +9,7 @@ const nR = 4
 const getDiets = async (req, res) => { 
   try { 
     const dietas = await axios.get(
-      `${url}${API_KEY1}${queryUrl}${nR}`
+      `${url}${API_KEY3}${queryUrl}${nR}`
     );
     
     const types = await dietas.data.results.map((t) => t.diets);  
