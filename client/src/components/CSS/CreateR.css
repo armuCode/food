@@ -13,12 +13,17 @@
   display: grid;
   text-align: center;
   margin: 0rem auto;
-  padding: 0rem;
+  padding: 0.1rem;
   -webkit-font-smoothing: antialiased;
   background-size: cover;
   background-attachment: fixed;
-  background-image: radial-gradient(var(--yellow), var(--dark-blue));
-  background-image: radial-gradient(circle at top left, var(--dark-blue), var(--gray), var(--white));
+  background-position: center top ;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/bgChef.png');
+  background-color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 2.5rem;
 }
 
 
@@ -37,9 +42,11 @@
 }
 
 .create h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-family: 'Bonheur Royale', cursive;
   font-weight: bold;
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
   padding: 0rem;
   color: var(--dark-blue);
 }
@@ -61,7 +68,7 @@
 
 
 .create label {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0.5rem;
   padding: 0rem;
@@ -112,6 +119,7 @@ option {
   left: 19rem;
   top: 0.5rem;
   font-weight: bold;
+  background-color: white;
 }
 
 .ok {
@@ -120,6 +128,7 @@ option {
 
 .choose {
   color: var(--dark-blue);
+  background-color: var(--gray);
   font-size: 1rem;
   font-weight: bold;
   font-style: oblique;

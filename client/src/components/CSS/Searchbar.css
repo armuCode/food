@@ -1,6 +1,6 @@
 .form {
   --width-of-input: 200px;
-  --border-height: 1px;
+  --border-height: 2px;
   --border-before-color: var(--dark-blue);
   --border-after-color: var(--yellow);
   --input-hovered-color: var(--white);

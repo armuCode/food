@@ -55,7 +55,6 @@ export function getDetails(id) {
   return async function(dispatch){
     return await axios.get(`${REACT_APP_HOST}/recipe/${id}`)
     .then(rAxios => {
-      console.log('Hola', rAxios.data);
       dispatch({
         type: GET_DETAILS,
         payload: rAxios.data

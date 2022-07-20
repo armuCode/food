@@ -1,36 +1,88 @@
-.bg {
-  background-image: url("../../assets/BG.png"); 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; 
-}
-
-.landing {
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+.cater3-movingBG {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  max-width: 20%;
-  text-align: left;
+  background-image: url(https://media.self.com/photos/622912847b959736301bfb91/2:1/w_2119,h_1059,c_limit/GettyImages-1301412050.jpg);
+  background-size: 125%;
+  background-repeat: repeat-x;
+  animation: animatedBackground 15s linear alternate infinite;
 }
 
-.title1 {
-  font-size: 8rem;
+@keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  50% { background-position: 50% 0; }
+  100% { background-position: 0 0; }
+}
+
+.flyinTxtCont {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-bottom: 10%;
+    margin-left: 2em;
+}
+.flyIn {
+  color:#fff;
+  font-family:'Raleway';
+  text-transform:uppercase;
+  line-height:1.2em;
+  position:relative;
+  text-shadow: 2px 2px 20px rgba(0,0,10,0.7);
+}
+.lineOne {
+transition-delay:.2s; 
+transition:.4s ease in;
+animation: txtFlyIn .3s linear;
+}
+.lineTwo {
+  transition-delay:.4s; 
+  transition:.6s ease in;
+  animation: txtFlyIn .6s linear;
+}
+.lineThree {
+  transition-delay:.6s; 
+  transition:.8s ease in;
+  animation: txtFlyIn .9s linear;
+}
+.lineOne, .lineTwo {
+  font-size:110px;
   font-weight: bold;
-  color: var(--dark-blue);
-  text-shadow: 0 0 0.5rem var(--white);
-  margin: 0rem;
-  padding: 0rem;
+  letter-spacing: 3px;
+}
+
+.lineThree {
+  font-size:50px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.lineFour {
+  transition-delay:2s; 
+  transition:2s ease in;
+  animation: fadeIn 2s linear;
+  width: 100%;
+  background-color:var(--dark-blue);
+  display:inline-block;
+  color:var(--white);
+  max-width:63%;
+  max-width: 22em;
+  font-size: 32px;
+  padding: .2em .5em;
+  margin-top: 30px;
+}
+@keyframes fadeIn{
+  0% { opacity:0;}
+  100% { opacity:1;}
+}
+@keyframes txtFlyIn{
+  0% { transform:translateX(-100%); }
+  100% { transform:translateX(0%); }
 }

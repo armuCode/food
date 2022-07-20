@@ -91,7 +91,13 @@ button:after {
   font-family: sans-serif;
   height: 2rem;
   font-family: 'Raleway', sans-serif;
+ }
 
+ input:focus {
+  outline: none;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border-bottom: var(--yellow) solid 2px;
  }
 
  select {
@@ -106,10 +112,16 @@ button:after {
   border: none;
  }
 
+ select:focus {
+  outline: none;
+  background-color: var(--white);
+  color: var(--dark-blue);
+ }
+
 
  * {
   font-size: 1.2rem;
-  color: #010A3D;
+  color: var(--dark-blue);
  }
 
 a:visited {

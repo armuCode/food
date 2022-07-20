@@ -33,8 +33,13 @@ function App() {
         </Route>
 
         <Route path='/about'>
-          <CardR/>
+          <Navbar/>
         </Route>
+
+        <Route path='/contact'>
+          <Navbar/>
+        </Route>
+
 
       </Switch>
     </div>

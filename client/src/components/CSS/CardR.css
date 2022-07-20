@@ -11,6 +11,7 @@
   gap: 1rem;
   top: 1rem;
   border-bottom: 2px solid var(--dark-blue);
+  background-color: var(--gray);
 }
 
 .card-details {
@@ -171,3 +172,4 @@ right: 1rem;
   flex: auto;
   display: flex;
 }
+

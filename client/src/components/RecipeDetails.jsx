@@ -49,12 +49,11 @@ export default function RecipeDetails () {
             <br></br>
             <br></br>
             <h3>Steps</h3>
-            { steps ? steps.map(s => {
+            { steps ? steps.map(ste => {
               return (
-                <ul>
-                  <span>Step {s.number}: </span>
-                  <span>{s.step}</span>
-                </ul>
+                <li key={`ste-${ste}`}>
+                  Step {ste.number}: {ste.step}
+                </li>
               )
             }) : [] }
             <br></br>
@@ -65,7 +64,7 @@ export default function RecipeDetails () {
             <h2>Dysh Types</h2>
             { dishTypes ? dishTypes.map(s => {
               return (
-                  <li>{s}</li>
+                  <li key={`t${s}`} >{s}</li>
               )
             }) : [] }
             <br></br>
@@ -74,7 +73,7 @@ export default function RecipeDetails () {
             <h2>Diets</h2>
             { Diets ? Diets.map(s => {
               return (
-                  <li>{s}</li>
+                  <li key={`d${s}`}>{s}</li>
               )
             }) : [] }
           </div>

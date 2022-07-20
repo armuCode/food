@@ -17,14 +17,16 @@ const Landing = () => {
   return (
     <div className="bg">
       <Link to='/home'>
-        <div className="landing">
-            <h2 className="title1">App Food</h2>
-            <br></br>
-            <br></br>
-            <br></br>
-            <button className='start'> PRESS START </button>
-            <h2>by: ArmuCode</h2>
-        </div>
+      <div className="cater3-movingBG">
+      <div className="flyinTxtCont">
+        <br></br>
+        <br></br>
+      <div className="flyIn lineOne">APP</div>
+      <div className="flyIn lineTwo"> FOOD </div>
+      <div className="flyIn lineThree">by: ArmuCode</div>
+        <div className="flyIn lineFour">push-starts</div>
+      </div>
+      </div>
       </Link>
     </div>
   )

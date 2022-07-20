@@ -27,11 +27,15 @@
 }
 
 .titleD {
-  font-size: 4rem;
+  font-size: 6rem;
   margin: 0 auto;
   padding: 0rem auto;
   text-align: center;
   color: var(--dark-blue);
+  font-family: 'Bonheur Royale', cursive;
+ line-height: 4.2rem;
+
+
 }
 
 .imageD {
@@ -115,11 +119,11 @@
     padding-inline: 2rem;
     
   }
+  .titleD {
+    font-size: 3rem;
+  }
   .detailsR p {
     font-size: 1rem;
-  }
-  .titleD {
-    font-size: 2rem;
   }
 
 }

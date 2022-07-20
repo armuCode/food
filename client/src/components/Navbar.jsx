@@ -29,7 +29,7 @@ export default function Navbar() {
       </nav>
         <label>
             <input type="checkbox"/>
-            <span class="menu"> <span class="hamburger"></span> </span>
+            <span className="menu"> <span className="hamburger"></span> </span>
             <ul>
             <li> <a className="aHome" href="/home">Home</a> </li>
             <li> <a className="aHome" href="/about">About</a> </li>

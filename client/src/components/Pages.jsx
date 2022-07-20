@@ -22,6 +22,7 @@ export default function Pages({recipesPerPage, actionsRecipes, pages, currentPag
         >←PREV</button>
         {pageNumbers && pageNumbers.map(number => { return (
           <button
+          key={number}
           className={currentPage === number ? 'active' : ''}
           onClick={()=>pages(number)}>{`${number}`}
           </button>)

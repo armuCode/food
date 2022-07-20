@@ -97,7 +97,6 @@ export default function CreateR() {
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log(recipeCreated);
     dispatch(postRecipe(recipeCreated));
     alert('Recipe created!');
     setRecipeCreated({
@@ -115,6 +114,7 @@ export default function CreateR() {
 
   return(
     <div className="create">
+      
       <form className='createR' onSubmit={(e) => onSubmit(e)}>
       <h2>Create your own Recipe!</h2>
 
@@ -157,11 +157,9 @@ export default function CreateR() {
           {errors.summary && (<span className="errors">{errors.summary}</span>)}
         </div>
 
-        <br></br>
         <div className='divInput'>
-          <h4>healthy Score</h4>
+          <h4>0 ←-- healthy Score --→ 100</h4>
           <h5>{recipeCreated.healthyScore}</h5>
-          <labe>0</labe>
           <input
               className="barScore"
               placeholder="from 0 to 100."
@@ -172,15 +170,12 @@ export default function CreateR() {
               name="healthyScore"
               onChange={(e) => onChange(e)}
               value={recipeCreated.healthyScore}
-            ></input>
-          <labe>100</labe> {/* labe ??? */}
+              ></input>
           {errors.healthyScore && (<span className="errors">{errors.healthyScore}</span>)}
         </div>
-        
-        <br></br>
-        <br></br>
-        <br></br>
 
+        <br></br>
+        <br></br>
         <div className='divInput'>
           <label>steps</label>
           <input
@@ -210,7 +205,7 @@ export default function CreateR() {
           >
             <option name="-Select one-" disabled selected> -Select one- </option>
             {dishTypes.map(dish =>(
-              <option value={dish}>{dish}</option>
+              <option key={`di-${dish}`}value={dish}>{dish}</option>
             ))}
           </select>
           {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
@@ -232,7 +227,7 @@ export default function CreateR() {
           >
             <option name="-Select one-" disabled selected> -Select one- </option>
             {allDiets.map(diet =>(
-              <option value={diet}>{diet}</option>
+              <option key={`die-${diet}`} value={diet}>{diet}</option>
             ))}
           </select>
           {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }

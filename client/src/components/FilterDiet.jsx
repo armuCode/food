@@ -21,12 +21,11 @@ export default function FilterDiet() {
 
   return(
     <div>
-      <select onChange={e => handleFilterByDiet(e)}>
-        <option name='-Select one-' disabled selected>Filter by Diets</option>
+      <select defaultValue={'All'} onChange={e => handleFilterByDiet(e)}>
         <option value="All">All Diets</option>
         {allDiets.map(diet => {
           return (
-            <option value={diet}>{diet}</option>
+            <option key={diet} value={diet}>{diet}</option>
           )
         })}
       </select> 
