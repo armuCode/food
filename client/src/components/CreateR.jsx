@@ -110,8 +110,6 @@ export default function CreateR() {
     })
   }
 
-  console.log(recipeCreated);
-
   return(
     <div className="create">
       

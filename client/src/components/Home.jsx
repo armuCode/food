@@ -25,6 +25,8 @@ export default function Home() {
     setCurrentPage(pageNumber);
   }
 
+  console.log(currentPage);
+
   if(actionsRecipes.length === 0) return <Loader />
   else {
     return (

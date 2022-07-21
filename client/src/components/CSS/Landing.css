@@ -1,7 +1,7 @@
 .cater3-movingBG {
-  height: 100%;
-  background-image: url(https://media.self.com/photos/622912847b959736301bfb91/2:1/w_2119,h_1059,c_limit/GettyImages-1301412050.jpg);
-  background-size: 125%;
+  height: 120%;
+  background-image: url(../../assets/bgLanding.jpg);
+  background-size: 110%;
   background-repeat: repeat-x;
   animation: animatedBackground 15s linear alternate infinite;
 }
@@ -31,12 +31,14 @@
     margin-left: 2em;
 }
 .flyIn {
-  color:#fff;
+  color: var(--white);
   font-family:'Raleway';
   text-transform:uppercase;
   line-height:1.2em;
   position:relative;
-  text-shadow: 2px 2px 20px rgba(0,0,10,0.7);
+  text-shadow: 0px 20px 20px var(--black); 
+  max-width: 100%;
+  max-height: 100%;
 }
 .lineOne {
 transition-delay:.2s; 
@@ -53,30 +55,33 @@ animation: txtFlyIn .3s linear;
   transition:.8s ease in;
   animation: txtFlyIn .9s linear;
 }
-.lineOne, .lineTwo {
+.lineTwo {
   font-size:110px;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 10px;
+  left: 0.2rem;
 }
 
-.lineThree {
-  font-size:50px;
+.lineThree, .lineOne {
+  left:0.5rem;
+  font-size:30px;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 8px;
 }
 .lineFour {
   transition-delay:2s; 
   transition:2s ease in;
   animation: fadeIn 2s linear;
   width: 100%;
-  background-color:var(--dark-blue);
   display:inline-block;
-  color:var(--white);
+  color:var(--dark-blue);
   max-width:63%;
   max-width: 22em;
   font-size: 32px;
   padding: .2em .5em;
   margin-top: 30px;
+  background-color: var(--yellow);
+
 }
 @keyframes fadeIn{
   0% { opacity:0;}

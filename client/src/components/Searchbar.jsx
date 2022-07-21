@@ -17,7 +17,7 @@ export default function Searchbar() {
     if(!search) return alert ("Please enter a search term")
     dispatch(getSearchedRecipes(search))
     history.push("/home");
-    setSearch('')
+    setSearch(' ')
   }
 
   function onChange(e) {

@@ -7,6 +7,7 @@ import SortScore from "./SortScore";
 import FilterDiet from "./FilterDiet";
 import FilterOrigin from "./FilterOrigin";
 import FClear from "./FClear";
+import Menu from "./Menu";
 
 import Logo from '../assets/armuCode.png'
 
@@ -22,40 +23,28 @@ export default function Navbar() {
             <img 
               src={Logo} 
               alt="armuCode" 
-              className="navbar-logo" 
-              width="50" height="50"
+              className="logoArmuCode"
               />
         </NavLink>
       </nav>
-        <label>
-            <input type="checkbox"/>
-            <span className="menu"> <span className="hamburger"></span> </span>
-            <ul>
-            <li> <a className="aHome" href="/home">Home</a> </li>
-            <li> <a className="aHome" href="/about">About</a> </li>
-            <li> <a className="aHome" href="/contact">Contact</a> </li>
-            </ul>
-        </label>
+        <Menu/>
       <menu className='navbarActions'>
-      <div>
             <FClear/>
+            <Searchbar/>
             <FilterDiet/>
             <FilterOrigin/>
-      </div>
+
       <div>
-            <br></br>
             <SortAZ/>
             <SortScore/>
       </div>
-      <br></br>          
           { create ?  '' :
           <div className="buttonsN">
             <NavLink to='create/own'>
-              <button className="buttonCreate"> Create Recipe</button>
+              <button className="buttonCreate">  Create Recipe  </button>
             </NavLink> 
           </div>          
           }
-          <Searchbar/>
       </menu>
     </>
   );

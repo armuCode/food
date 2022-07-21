@@ -16,9 +16,9 @@ export default function SortScore() {
   return (
     <div>
       <select name='select' onChange={e => onSelectChange(e)}>
-        <option name='-Select one-' disabled selected>↑↓ Sort Score</option>
-        <option value='ASCENDENT'>ASCENDENT</option>
-        <option value='DESCENDENT'>DESCENDENT</option>
+        <option name='-Select one-' disabled selected> Sort Score</option>
+        <option value='ASCENDENT'>↑ ascendent</option>
+        <option value='DESCENDENT'>↓ descendent</option>
       </select>
     </div>
   )

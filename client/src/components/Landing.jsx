@@ -18,14 +18,19 @@ const Landing = () => {
     <div className="bg">
       <Link to='/home'>
       <div className="cater3-movingBG">
-      <div className="flyinTxtCont">
-        <br></br>
-        <br></br>
-      <div className="flyIn lineOne">APP</div>
-      <div className="flyIn lineTwo"> FOOD </div>
-      <div className="flyIn lineThree">by: ArmuCode</div>
-        <div className="flyIn lineFour">push-starts</div>
-      </div>
+        <div className="flyinTxtCont">
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <div className="flyIn lineOne">APP</div>
+          <div className="flyIn lineTwo"> recipes </div>
+          <div className="flyIn lineThree">by: ArmuCode</div>
+          <br></br>
+          <button className="flyIn lineFour">push-starts</button>
+          <br></br>
+          <br></br>
+        </div>
       </div>
       </Link>
     </div>

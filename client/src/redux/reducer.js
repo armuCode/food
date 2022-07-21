@@ -94,7 +94,8 @@ export function reducer (state = initialState, { type, payload /* action */}){
         actionsRecipes: arrayFilterDiet,
       };
     case FILTER_BY_ORIGIN:
-      let arrayFilterOrigin = payload === 'DB' ? state.allRecipes.filter(r => r.id.length > 30 ) : payload === 'API' ? state.allRecipes.filter(r => r.id.length < 30 ) : state.allRecipes
+      let allRecipes2 = state.allRecipes
+      let arrayFilterOrigin = payload === 'All' ? allRecipes2 : payload === 'DB' ? allRecipes2.filter(r => r.id.length > 30 ) : allRecipes2.filter(r => r.id.length < 30 )
       return {
         ...state,
         actionsRecipes: arrayFilterOrigin,

@@ -85,7 +85,7 @@ export function getSearchedRecipes (search) {
     })
     .catch(err => {
       console.error(`Error in getSearchedRecipes`, err.response.data);
-      return alert(`No se encontraron resultados para ${search}`);
+      return alert(`Not found recipes named '${search}'`);
     })
   }
 }

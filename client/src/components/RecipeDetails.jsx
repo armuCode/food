@@ -45,17 +45,15 @@ export default function RecipeDetails () {
           <p className="summaryD">{summary}</p>
         </div>
 
-          <div className="div5">
+        <div className="div5">
             <br></br>
             <br></br>
             <h3>Steps</h3>
             { steps ? steps.map(ste => {
               return (
-                <li key={`ste-${ste}`}>
-                  Step {ste.number}: {ste.step}
-                </li>
+                <p key={`ste-${ste}`}> Step {ste.number}: {ste.step} </p>
               )
-            }) : [] }
+            }) : <p>No steps</p>}
             <br></br>
             <br></br>
           </div>
@@ -66,7 +64,7 @@ export default function RecipeDetails () {
               return (
                   <li key={`t${s}`} >{s}</li>
               )
-            }) : [] }
+            }) : <p>No dish types</p>}
             <br></br>
             <img className='dietsV' src={dietsVector} alt='Vector Diets' />
             <br></br>
@@ -75,7 +73,7 @@ export default function RecipeDetails () {
               return (
                   <li key={`d${s}`}>{s}</li>
               )
-            }) : [] }
+            }) : <p>No diets</p>}
           </div>
 
       </div>
