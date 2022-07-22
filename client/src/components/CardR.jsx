@@ -22,7 +22,7 @@ export default function CardR({id, name, image, summary, healthyScore, Diets, di
           </div>  
         </div>
           <div className='diets'>
-            {Diets.map(d => {return <ul key={d}>• {d} </ul>})}
+            {Diets.map(d => {return <ul key={d}>{` •${d} `}</ul>})}
           </div>
          {/*  <div className='dishTypes'>
             {dishTypes.map(d => {return <ul>{d} </ul>})}  
@@ -31,6 +31,7 @@ export default function CardR({id, name, image, summary, healthyScore, Diets, di
           <span className='hearth'>{healthyScore}</span>
       </div>
       </NavLink>
+      <div className='lineBorder'></div>
     </div>
   )
 }
