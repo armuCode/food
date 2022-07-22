@@ -14,6 +14,7 @@
     flex-wrap: wrap;
     padding: 0.2rem;
     font-size: 1rem;
+    z-index: -1;
 }
 .active{
   background-color: var(--dark-blue);

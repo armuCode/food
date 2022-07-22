@@ -1,9 +1,9 @@
 /* From uiverse.io by @alexruix */
 .card {
   width: 20rem;
-  height: 26rem;
+  height: 24rem;
   position: relative;
-  border: 2px solid var(--gray);
+  border: 1px solid var(--gray);
   transition: 0.5s ease-out;
   overflow: visible;
   margin: 0rem;
@@ -11,18 +11,18 @@
   top: 1rem;
 }
 
-.lineBorder{
+.imageCard {
+  grid-column: 1 / span 3;
+  height: 5rem;
+  width: 20rem;
+  margin: 0rem auto;
   position: absolute;
-  padding: 0rem;
-  margin: 0rem;
-  height: 0.rem;
-  width: 100%; 
-  height: 2%;
-  background: linear-gradient(to right, var(--yellow) 0%,var(--yellow) 33%,var(--yellow) 33%,rgba(254,177,35,1) 66%, var(--dark-blue) 66%,var(--dark-blue) 100%);
-  
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed8034', endColorstr='#2184cd',GradientType=1 );
-  bottom: 0rem;
-}
+  block-size: auto;
+  line-height: 10rem;
+  top: 0rem;
+ }
+
+
 
 .card-details {
   height: 100%;
@@ -68,6 +68,15 @@
   top: 14rem;
 }
 
+.summaryC{
+  padding-inline: 0.5rem;
+  margin-top: 1rem;
+  flex: auto;
+  display: flex;
+  font-size: 1rem;
+  text-align: justify;
+}
+
 .card-details p {
  font-size: 0.7rem;
  position: absolute;
@@ -75,16 +84,7 @@
  margin: 0rem;
 }
 
- .imageCard {
-  grid-column: 1 / span 3;
-  height: 5rem;
-  width: 20rem;
-  margin: 0rem auto;
-  position: absolute;
-  block-size: auto;
-  line-height: 10rem;
-  top: 0rem;
- }
+
 
  .card-details ul {
   font-size: 0.3rem;
@@ -115,9 +115,6 @@
   color: var(--black);
  }
  
- /*Text*/
- 
- /*Hover*/
  .card:hover {
   border-color: var(--yellow);
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
@@ -127,69 +124,74 @@
   transform: translate(-50%, 50%);
   opacity: 1;
  }
-
  
-.vector {
-  position: absolute;
-  bottom: 6rem;
-  left: 4.5rem;
-  margin: 0 auto;
-  padding: 0 auto;
-  max-width: 2rem;
-  z-index: 0;
-}
+ .vector {
+    position: absolute;
+    bottom: 4.1rem;
+    left: 1.3rem;
+    margin: 0 auto;
+    padding: 0 auto;
+    max-width: 1.5rem;
+    z-index: 0;
+ }
+
+ .diets {
+    position: absolute;
+    bottom :1rem;
+    left: 3rem;
+    margin: 0 auto;
+    padding: 0 auto;
+    display: inline-block;
+    max-width: 8rem;
+    height: 4.5rem;
+    font-size: 0.3rem;
+    text-align: left;
+  }
   
-.diets {
+  .diets ul {
+    font-size: 0.6rem;
+  }
+
+  .rate {
   position: absolute;
-  bottom :1rem;
-  left: 1rem;
-  margin: 0 auto;
-  padding: 0 auto;
-  display: inline-block;
-  max-width: 10rem;
-  height: 4.5rem;
-  border-right: 2px solid var(--gray);
-  font-size: 1rem;
-}
+  bottom: 1rem;
+  max-width: 3rem;
+  right: 3rem;
+  }
 
-.diets ul {
-  font-size: 0.7rem;
-}
+  .hearth {
+    font-size: 2rem;
+    margin: 0rem;
+    padding: 0rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: var(--dark-blue);
+  }
 
-.hearth {
-  font-size: 2rem;
-  margin: 0rem;
-  padding: 0rem;
-  position: absolute;
-  bottom: 3rem;
-  right: 2rem;
-  color: var(--dark-blue);
-}
 
-.rate {
-position: absolute;
-bottom: 3rem;
-max-width: 3rem;
-right: 4.5rem;
-}
-
-.dishTypes {
+/* .dishTypes {
 position: absolute;
 bottom: 5rem;
-max-width: 8rem;
-right: 1rem;
-}
-
-.summaryC{
-  padding-inline: 0.5rem;
-  margin-top: 1rem;
-  flex: auto;
-  display: flex;
-  font-size: 1rem;
-}
+max-width: 7rem;
+right: 2rem;
+text-align: left;
+font-size: 1rem;
+font-family: 'Bonheur Royale', cursive;
+} */
 
 
-  .hola {background: linear-gradient(to right, rgba(237,128,52,1) 0%,rgba(237,128,52,1) 33%,rgba(254,177,35,1) 33%,rgba(254,177,35,1) 66%,rgba(33,132,205,1) 66%,rgba(33,132,205,1) 100%);
 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed8034', endColorstr='#2184cd',GradientType=1 ); 
+.lineBorder{
+  position: absolute;
+  padding: 0rem;
+  margin: 0rem;
+  height: 0.rem;
+  width: 100%; 
+  height: 1.5%;
+  background: linear-gradient(to right, var(--yellow) 0%,var(--yellow) 33%,var(--yellow) 33%,rgba(254,177,35,1) 66%, var(--dark-blue) 66%,var(--dark-blue) 100%);
+  
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed8034', endColorstr='#2184cd',GradientType=1 );
+  bottom: 0rem;
+  z-index: -1;
 }

@@ -18,15 +18,15 @@ export default function CardR({id, name, image, summary, healthyScore, Diets, di
         <div className='info'>
           <h2 className="text-title">{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
           <div className='summaryC'>
-            <p> { `${summary.slice(0, 90)}...` }</p>
+            <p> { `${summary.slice(0, 120)}...` }</p>
           </div>  
         </div>
           <div className='diets'>
             {Diets.map(d => {return <ul key={d}>{` •${d} `}</ul>})}
           </div>
-         {/*  <div className='dishTypes'>
-            {dishTypes.map(d => {return <ul>{d} </ul>})}  
-          </div> */}
+{/*           <div className='dishTypes'>
+            {dishTypes.map(d => {return <ul>{` *${d} `}</ul>})}  
+          </div>    */}  
       <button className="card-button">More info</button>      
           <span className='hearth'>{healthyScore}</span>
       </div>

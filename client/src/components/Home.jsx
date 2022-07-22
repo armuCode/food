@@ -30,7 +30,7 @@ export default function Home() {
   if(actionsRecipes.length === 0) return <Loader />
   else {
     return (
-      <div >
+      <div className="homeDiv">
           <div>
             <Pages
               recipesPerPage={recipesPerPage}

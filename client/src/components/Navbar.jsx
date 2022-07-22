@@ -18,26 +18,16 @@ export default function Navbar() {
   
   return (
     <>
-      <nav className="navbar">
-        <NavLink to='/home'>
-            <img 
-              src={Logo} 
-              alt="armuCode" 
-              className="logoArmuCode"
-              />
-        </NavLink>
-      </nav>
-        <Menu/>
       <menu className='navbarActions'>
             <FClear/>
             <Searchbar/>
             <FilterDiet/>
             <FilterOrigin/>
 
-      <div>
+          <div>
             <SortAZ/>
             <SortScore/>
-      </div>
+          </div>
           { create ?  '' :
           <div className="buttonsN">
             <NavLink to='create/own'>

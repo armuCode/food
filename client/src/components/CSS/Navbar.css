@@ -1,26 +1,4 @@
-.navbar {
-  margin: 0rem;
-  padding: 0rem;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--dark-blue);
-  justify-content: space-around;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  color: var(--white);
-  align-items: right;
-  height: 3.3rem;
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  top:-0.4rem
-}
 
-.logoArmuCode{
-  width: 50px;
-  z-index: 3;
-}
 
 .tabs{
   width: 20rem;
@@ -46,7 +24,8 @@
   position: sticky;
   position: fixed;
   width: 100%;
-  top: 2.6rem
+  top: 2.6rem;
+  z-index: 0;
 }
 
 .buttonCreate {
@@ -55,7 +34,5 @@
   text-transform: initial;
   font-size: 1.8rem;
   border-bottom: 2px solid var(--dark-blue);
-
-
 }
 

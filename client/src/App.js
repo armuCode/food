@@ -8,6 +8,7 @@ import RecipeDetails from './components/RecipeDetails.jsx';
 import Navbar from './components/Navbar.jsx';
 import CreateR from './components/CreateR.jsx';
 import CardR from './components/CardR.jsx';
+import Menu from './components/Menu';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
 
         <Route path='/home'>
+          <Menu/>
           <Navbar/>
           <Home/>
         </Route>
