@@ -16,14 +16,13 @@
   height: 3rem;
   z-index: 1;
   position: fixed;
-  width: 100%;
   top:-0.4rem;
 
 }
 
 .logoArmuCode {
   position: absolute;
-  left: 50%;
+  left: 48%;
   z-index: 3;
   width: 3rem;
 }
@@ -38,7 +37,7 @@
 .navbar .menu-items {
   display: flex;
   background-color: var(--dark-blue);
-  width: 100%;
+  max-width: 100%;
   height: 100%;
 }
 
@@ -56,6 +55,12 @@
 
 .navbar .nav-container a:hover{
   font-weight: bolder;
+  color: var(--yellow); 
+}
+
+.navbar .nav-container li:hover{
+  font-weight: bolder;
+  color: var(--yellow); 
 }
 
 .nav-container {
@@ -70,7 +75,7 @@
   height: 32px;
   width: 32px;
   top: 20px;
-  right: 20px;
+  right: 0px;
   z-index: 5;
   opacity: 0;
   cursor: pointer;
@@ -82,7 +87,7 @@
   width: 32px;
   position: absolute;
   top: 17px;
-  right: 20px;
+  right: 0px;
   z-index: 2;
   display: flex;
   flex-direction: column;

@@ -35,11 +35,11 @@ function App() {
         </Route>
 
         <Route path='/about'>
-          <Navbar/>
+          <Menu/>
         </Route>
 
         <Route path='/contact'>
-          <Navbar/>
+          <Menu/>
         </Route>
 
       </Switch>

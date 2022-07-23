@@ -156,7 +156,7 @@ export default function CreateR() {
         <div className="form__group field">
           <label class="form__label">0←healthy Score→100</label>
           <h4 class="form__label">{recipeCreated.healthyScore}</h4>
-          <img src={Rate} alt="Rate" className="rate" />
+          <img src={Rate} alt="Rate" className="rate1" />
           <input
               className="barScore"
               placeholder="from 0 to 100."

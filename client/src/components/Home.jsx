@@ -16,7 +16,7 @@ export default function Home() {
   let actionsRecipes = useSelector(state => state.actionsRecipes);
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage] = useState(4);
+  const [recipesPerPage] = useState(9);
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = actionsRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
@@ -25,7 +25,6 @@ export default function Home() {
     setCurrentPage(pageNumber);
   }
 
-  console.log(currentPage);
 
   if(actionsRecipes.length === 0) return <Loader />
   else {
