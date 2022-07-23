@@ -5,6 +5,7 @@ import { postRecipe } from "../redux/actions";
 
 import { getAllRecipes, getAllDiets } from "../redux/actions";
 
+import Rate from '../assets/HRate.png'
 import './CSS/CreateR.css';
 
 function validate(input){
@@ -112,52 +113,50 @@ export default function CreateR() {
 
   return(
     <div className="create">
-      
-      <form className='createR' onSubmit={(e) => onSubmit(e)}>
-      <h2>Create your own Recipe!</h2>
+      <div className="form-container">
+      <form onSubmit={(e) => onSubmit(e)}>
+      <h2 className="titleF">Create your own Recipe!</h2>
 
-        <div className='divInput'>
-          <label>name</label>
-          <input
-            className="inputCreate"
+        <div className="form__group field">
+          <input className="form__field"
             placeholder="Write an awesome name"
             type="text"
             name="name"
             onChange={(e) => onChange(e)}
             value={recipeCreated.name}
           />
+          <label class="form__label" >name</label>
           {errors.name && (<span className="errors">{errors.name}</span>)}
         </div>
 
-        <div className='divInput'>
-          <label>image</label>
-          <input
-            className="inputCreate"
+        <div className="form__group field">
+          <input className="form__field"
             placeholder="Find an image on the web"
             type="text"
             name="image"
             onChange={(e) => onChange(e)}
             value={recipeCreated.image}
           />
+          <label class="form__label"  >image</label>
           {errors.image && (<span className="errors">{errors.image}</span>)}
         </div>
 
-        <div className='divInput'>
-          <label>summary</label>
-          <input
-            className="inputCreate"
+        <div className="form__group field">
+          <input className="form__field"
             placeholder="Tell us a résumé about your recipe"
             type="text"
             name="summary"
             onChange={(e) => onChange(e)}
             value={recipeCreated.summary}
           />
+          <label class="form__label"  >summary</label>
           {errors.summary && (<span className="errors">{errors.summary}</span>)}
         </div>
 
-        <div className='divInput'>
-          <h4>0 ←-- healthy Score --→ 100</h4>
-          <h5>{recipeCreated.healthyScore}</h5>
+        <div className="form__group field">
+          <label class="form__label">0←healthy Score→100</label>
+          <h4 class="form__label">{recipeCreated.healthyScore}</h4>
+          <img src={Rate} alt="Rate" className="rate" />
           <input
               className="barScore"
               placeholder="from 0 to 100."
@@ -169,32 +168,27 @@ export default function CreateR() {
               onChange={(e) => onChange(e)}
               value={recipeCreated.healthyScore}
               ></input>
-          {errors.healthyScore && (<span className="errors">{errors.healthyScore}</span>)}
+              {errors.healthyScore && (<span className="errors">{errors.healthyScore}</span>)}
         </div>
 
-        <br></br>
-        <br></br>
-        <div className='divInput'>
-          <label>steps</label>
-          <input
-            className="inputCreate"
+        <div className="form__group field">
+          <input className="form__field"
             placeholder="Step by step"
             type="text"
             name="steps"
             onChange={(e) => onChange(e)}
             value={[recipeCreated.steps]}
           />
+          <label class="form__label"  >steps</label>
           {errors.steps && (<div className="errors">{errors.steps}</div>)}
         </div>
 
-        <br></br>
-        <div>
+        <div className="chooseSpans">
             {recipeCreated.dishTypes.length > 0 ? recipeCreated.dishTypes.map(dish =>(
               <span className="choose">{ `•${dish} ` }</span>
-            )) : <br></br>}
+            )) : ''}
           </div>
-        <div className='divInput'>
-          <label >dishTypes</label>
+        <div className="form__group field">
           <select
               className="selectors"
               multiple
@@ -204,19 +198,18 @@ export default function CreateR() {
             <option name="-Select one-" disabled selected> -Select one- </option>
             {dishTypes.map(dish =>(
               <option key={`di-${dish}`}value={dish}>{dish}</option>
-            ))}
+              ))}
           </select>
+              <label class="form__label" >dishTypes</label>
           {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
         </div>
 
-        <br></br>
-          <div>
+        <div className="chooseSpans2">
             {recipeCreated.Diets.length > 0 ? recipeCreated.Diets.map(diet =>(
               <span className="choose">{ `•${diet} ` }</span>
             )) : <br></br>}
           </div>
-        <div className='divInput'>
-          <label >diets</label>
+        <div className="form__group field">
           <select
               className="selectors"
               multiple
@@ -226,14 +219,18 @@ export default function CreateR() {
             <option name="-Select one-" disabled selected> -Select one- </option>
             {allDiets.map(diet =>(
               <option key={`die-${diet}`} value={diet}>{diet}</option>
-            ))}
+              ))}
           </select>
+              <label class="form__label"   >diets</label>
           {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }
         </div>
 
         {recipeCreated.name != '' && Object.keys(errors).length === 0 ? <button className="ok"> Create Recipe </button> : ''}
-
+        <br></br>
+        <br></br>
+        <br></br>
       </form>
+      </div>
     </div>
   )
 }

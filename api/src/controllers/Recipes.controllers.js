@@ -5,7 +5,7 @@ const { Diet, Recipe } = require("../db");
 const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
 const { API_KEY } = process.env;
 const queryUrl = '&addRecipeInformation=true&number='
-const nR = 20
+const nR = 2
 
 const { dbRecipes } = require('../../dbRecipes')
 

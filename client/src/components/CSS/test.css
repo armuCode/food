@@ -1,5 +1,3 @@
-
-
 .container {
   max-width: 1050px;
   width: 90%;
@@ -8,6 +6,7 @@
 
 .navbar {
   width: 100%;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   z-index: 3;
   position: fixed;
   margin: 0rem;
@@ -17,8 +16,7 @@
   z-index: 1;
   position: fixed;
   width: 100%;
-  top:-0.4rem;
-
+  top:-0.4rem
 }
 
 .logoArmuCode {
@@ -38,8 +36,6 @@
 .navbar .menu-items {
   display: flex;
   background-color: var(--dark-blue);
-  width: 100%;
-  height: 100%;
 }
 
 .navbar .nav-container li {
@@ -70,7 +66,7 @@
   height: 32px;
   width: 32px;
   top: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 5;
   opacity: 0;
   cursor: pointer;
@@ -82,7 +78,7 @@
   width: 32px;
   position: absolute;
   top: 17px;
-  right: 20px;
+  left: 20px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -117,11 +113,11 @@
   box-shadow: inset 0 0 2000px var(--black);
   height: 100vh;
   width: 100%;
-  transform: translate(80%);
+  transform: translate(-150%);
   display: flex;
   flex-direction: column;
-  margin-right: 40px;
-  padding-right: 2000px;
+  margin-left: -40px;
+  padding-left: 50px;
   transition: transform 0.5s ease-in-out;
   text-align: center;
 }

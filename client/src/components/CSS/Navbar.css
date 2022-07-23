@@ -25,7 +25,7 @@
   position: fixed;
   width: 100%;
   top: 2.6rem;
-  z-index: 0;
+  z-index: 1;
 }
 
 .buttonCreate {

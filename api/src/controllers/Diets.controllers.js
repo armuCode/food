@@ -4,7 +4,7 @@ const { Diet } = require("../db");
 const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
 const { API_KEY } = process.env;
 const queryUrl = '&addRecipeInformation=true&number='
-const nR = 4
+const nR = 2
 
 const getDiets = async (req, res) => { 
   try { 

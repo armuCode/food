@@ -189,7 +189,7 @@ font-family: 'Bonheur Royale', cursive;
   height: 0.rem;
   width: 100%; 
   height: 1.5%;
-  background: linear-gradient(to right, var(--yellow) 0%,var(--yellow) 33%,var(--yellow) 33%,rgba(254,177,35,1) 66%, var(--dark-blue) 66%,var(--dark-blue) 100%);
+  background: linear-gradient(to right, var(--merengue) 0%,var(--merengue) 33%,var(--merengue) 33%,rgba(254,177,35,1) 66%, var(--dark-blue) 66%,var(--dark-blue) 100%);
   
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed8034', endColorstr='#2184cd',GradientType=1 );
   bottom: 0rem;

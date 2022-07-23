@@ -1,132 +1,162 @@
+
+
 .create{
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  display: grid;
-  flex-direction: row;
-  display: grid;
-  text-align: center;
-  margin: 0rem auto;
-  padding: 0.1rem;
   -webkit-font-smoothing: antialiased;
   background-size: cover;
   background-position: top ;
   background-repeat: no-repeat;
-  background-image: url('../../assets/bgChef.png');
-  background-color: var(--white);
-  display: flex;
-  flex-wrap: wrap;
-  line-height: 2.5rem;
-  z-index: -1;
-}
-
-
-.createR {
-  margin-top: 9rem;
-  z-index: 0;
-}
-
-.divInput{
-  margin: 0rem;
-  padding: 0.2rem;
-  height: 2.5rem;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: row;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgba(10,10,10,1) 0%, rgba(1,10,61,1) 35%, rgba(10,10,10,1) 100%);
   position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 110vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
 }
 
-.create h2 {
-  font-size: 3rem;
-  font-family: 'Bonheur Royale', cursive;
-  font-weight: bold;
-  margin-top: 1rem;
-  margin-bottom: 0rem;
-  padding: 0rem;
+
+
+.form-container {
+  top: 0rem;
+  background-color: var(--white);
+  align-items: center;
+  margin: 0 auto;
+  width: 20rem;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  z-index: 0;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.75);
+  padding-left: 1.5rem;
+}
+
+.titleF{
   color: var(--dark-blue);
-  text-shadow: 2px 2px 10px var(--white)
-
-}
-
-.create h4 {
-  padding: 0rem;
+  z-index: 3;
+  padding-top: 5rem;
+  padding-bottom: 0rem;
   margin: 0rem;
-  font-size: 1rem;
+  font-family: 'Bonheur Royale', cursive;
+  font-size: 2.5rem;
 }
 
-.create h5 {
-  padding: 0rem;
-  margin: 0rem auto;
-  background-color: var(--dark-blue);
-  width: 53.5%;
-  align-self: center;
-  color: var(--white);
+/* From uiverse.io by @mrhyddenn */
+.form__group {
+  position: relative;
+  padding: 5px 0 0;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 180px;
 }
 
-
-.create label {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0.5rem;
-  padding: 0rem;
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--dark-blue);
+  outline: 0;
+  font-size: 17px;
   color: var(--dark-blue);
+  padding: 4px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  height: 2rem;
+}
+
+.form__group h4 {
   position: absolute;
   top: 0rem;
-  left: 0rem;
+  left: 11rem;
+  font-size: 1.5rem;
 }
 
-.inputCreate {
-  width: 50%;
-  height: 2rem;
-  padding: 0.5rem;
-  border-radius: 0px;
-  margin-bottom: 2rem;
-  font-size: 0.5rem;
+.rate {
+  position: absolute;
+  top: 1rem;
+  left: 9rem;
+  width: 2rem;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--dark-blue);
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, var(--yellow), var(--yellow)) 1;
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--yellow);
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
 }
 
 option {
   font-size: 1rem;
-  height: 2rem;
-  margin: 0rem;
-  padding: 0.2rem;
-  padding-left: 0.5rem;
-}
-
-.barScore{
-  height: 3rem;
-  width: 53.5%;
+  width: 100%;
+  height: 100%;
+  height: 0.5rem;
+  margin-top: 1.1rem;
   padding: 0rem;
-  margin: 0rem;
-  border-radius: 0px;
+  padding-left: 0.5rem;
+  z-index: 100;
 }
 
-.selectors{
-  width: 53.5%;
-  height: 2rem;
-  padding: 0.5rem;
-  border-radius: 0px;
-  font-size: 0.5rem;
-}
+
 
 .errors{
   font-size: 0.5rem;
   padding: 0rem;
   color: red;
   position: absolute;
-  left: 17rem;
-  top: 0.5rem;
+  left: 11rem;
+  top: 1.5rem;
   font-weight: bolder;
   line-height: 1rem;
-  width: 5rem;
-}
-
-.ok {
-  background-color: var(--yellow);
+  width: 8rem;
+  text-align: left;
 }
 
 .choose {
@@ -137,5 +167,55 @@ option {
   font-style: oblique;
   padding: 0.1rem;
   border-radius: 0px;
-  margin: 0.2rem;
+  margin: 0 auto;
+  bottom: 5.5rem;
+  width: 100%
+}
+
+.selectors{
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 0px;
+  font-size: 0.5rem;
+  border-bottom: 3px solid var(--white);
+  position: relative;
+
+}
+
+.chooseSpans {
+  max-width: 6rem;
+  max-height: 4rem;
+  top: 23.5rem;
+  position: absolute;
+  line-height: 0.8rem;
+  left: 13.5rem;
+  text-align: left;
+  height: 5rem;
+}
+
+.chooseSpans span {
+  font-size: 0.5rem;
+  background-color: var(--white);
+}
+
+.chooseSpans2 {
+  max-width: 6rem;
+  max-height: 4rem;
+  top: 27rem;
+  position: absolute;
+  line-height: 0.8rem;
+  left: 13.5rem;
+  text-align: left;
+  height: 5rem;
+}
+
+.chooseSpans2 span {
+  font-size: 0.5rem;
+  background-color: var(--white);
+
+}
+
+.ok {
+  background-color: var(--yellow);
 }

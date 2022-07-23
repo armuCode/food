@@ -7,8 +7,8 @@ import Home from './components/Home.jsx';
 import RecipeDetails from './components/RecipeDetails.jsx';
 import Navbar from './components/Navbar.jsx';
 import CreateR from './components/CreateR.jsx';
-import CardR from './components/CardR.jsx';
 import Menu from './components/Menu';
+
 
 function App() {
   return (
@@ -25,12 +25,12 @@ function App() {
         </Route>
 
         <Route path='/recipe/:id'>
-          <Navbar/>
+          <Menu/>
           <RecipeDetails/>
         </Route>
 
         <Route path='/create/:create'>
-          <Navbar/>
+          <Menu/>
           <CreateR/>
         </Route>
 
@@ -41,7 +41,6 @@ function App() {
         <Route path='/contact'>
           <Navbar/>
         </Route>
-
 
       </Switch>
     </div>
