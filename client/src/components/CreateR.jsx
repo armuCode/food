@@ -125,7 +125,7 @@ export default function CreateR() {
             onChange={(e) => onChange(e)}
             value={recipeCreated.name}
           />
-          <label class="form__label" >name</label>
+          <label className="form__label" >name</label>
           {errors.name && (<span className="errors">{errors.name}</span>)}
         </div>
 
@@ -137,7 +137,7 @@ export default function CreateR() {
             onChange={(e) => onChange(e)}
             value={recipeCreated.image}
           />
-          <label class="form__label"  >image</label>
+          <label className="form__label"  >image</label>
           {errors.image && (<span className="errors">{errors.image}</span>)}
         </div>
 
@@ -149,13 +149,13 @@ export default function CreateR() {
             onChange={(e) => onChange(e)}
             value={recipeCreated.summary}
           />
-          <label class="form__label"  >summary</label>
+          <label className="form__label"  >summary</label>
           {errors.summary && (<span className="errors">{errors.summary}</span>)}
         </div>
 
         <div className="form__group field">
-          <label class="form__label">0←healthy Score→100</label>
-          <h4 class="form__label">{recipeCreated.healthyScore}</h4>
+          <label className="form__label">0←healthy Score→100</label>
+          <h4 className="form__label">{recipeCreated.healthyScore}</h4>
           <img src={Rate} alt="Rate" className="rate1" />
           <input
               className="barScore"
@@ -179,7 +179,7 @@ export default function CreateR() {
             onChange={(e) => onChange(e)}
             value={[recipeCreated.steps]}
           />
-          <label class="form__label"  >steps</label>
+          <label className="form__label"  >steps</label>
           {errors.steps && (<div className="errors">{errors.steps}</div>)}
         </div>
 
@@ -200,7 +200,7 @@ export default function CreateR() {
               <option key={`di-${dish}`}value={dish}>{dish}</option>
               ))}
           </select>
-              <label class="form__label" >dishTypes</label>
+              <label className="form__label" >dishTypes</label>
           {errors.dishTypes && (<span className="errors">{errors.dishTypes}</span> ) }
         </div>
 
@@ -221,7 +221,7 @@ export default function CreateR() {
               <option key={`die-${diet}`} value={diet}>{diet}</option>
               ))}
           </select>
-              <label class="form__label"   >diets</label>
+              <label className="form__label"   >diets</label>
           {errors.Diets && (<span className="errors">{errors.Diets}</span> ) }
         </div>
 

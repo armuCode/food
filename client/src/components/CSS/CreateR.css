@@ -46,7 +46,7 @@
 .titleF{
   color: var(--dark-blue);
   z-index: 3;
-  padding-top: 5rem;
+  padding-top: 2rem;
   padding-bottom: 0rem;
   margin: 0rem;
   font-family: 'Bonheur Royale', cursive;
@@ -124,7 +124,7 @@
   display: block;
   transition: 0.2s;
   font-size: 17px;
-  color: var(--yellow);
+  color: var(--gray);
   font-weight: 700;
 }
 
@@ -184,9 +184,9 @@ option {
 }
 
 .chooseSpans {
-  max-width: 6rem;
+  max-width: 7rem;
   max-height: 4rem;
-  top: 23.5rem;
+  bottom: 4.5rem;
   position: absolute;
   line-height: 0.8rem;
   left: 13.5rem;
@@ -200,9 +200,9 @@ option {
 }
 
 .chooseSpans2 {
-  max-width: 6rem;
+  max-width: 7rem;
   max-height: 4rem;
-  top: 27rem;
+  bottom: 1rem;
   position: absolute;
   line-height: 0.8rem;
   left: 13.5rem;

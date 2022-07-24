@@ -8,7 +8,8 @@ import {  GET_ALL_RECIPES,
           SORT_AZ,
           SORT_SCORE,
           FILTER_BY_DIET,
-          FILTER_BY_ORIGIN
+          FILTER_BY_ORIGIN,
+          STATUS,
 } from "./actions";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   actionsRecipes: [],
   recipeDetails:[],
   allDiets: [],
+  status: [], 
 }
 
 
@@ -46,6 +48,7 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
         recipeDetails: payload,
+        status: payload
       }
     case GET_SEARCHED:
       return{
@@ -99,6 +102,11 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return {
         ...state,
         actionsRecipes: arrayFilterOrigin,
+      }
+    case STATUS:
+      return {
+        ...state,
+        status: payload
       }
     default:
         return state;

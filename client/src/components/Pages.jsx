@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { current } from "../redux/actions";
+
 
 import Loader from "./Loader";
 
 import './CSS/Pages.css';
 
 export default function Pages({recipesPerPage, actionsRecipes, pages, currentPage, setCurrentPage}){
-  const pageNumbers = [];
 
+  let actionsRecipesState = useSelector(state => state.actionsRecipes);
+
+  const pageNumbers = [];
+  
   for (let i=1; i<=Math.ceil(actionsRecipes/recipesPerPage); i++) {
     pageNumbers.push(i);
   }
-
+  
   let totalPages = Math.ceil(actionsRecipes/recipesPerPage);
+  
+  useEffect(() => {
+    totalPages >= currentPage ? setCurrentPage(currentPage) : setCurrentPage(1);
+  },[actionsRecipesState])
+  
 
   return (
     !actionsRecipes === [] ? <Loader /> :

@@ -7,13 +7,14 @@ import { getAllRecipes, getAllDiets } from "../redux/actions";
 import Pages from "../components/Pages";
 import CardR from "../components/CardR";
 import Loader from "./Loader";
+import NotFound from "./NotFound";
 
 import './CSS/Home.css';
-
 
 export default function Home() {
 
   let actionsRecipes = useSelector(state => state.actionsRecipes);
+  let [statusCode, search] = useSelector(state => state.status);
   
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
@@ -27,6 +28,7 @@ export default function Home() {
 
 
   if(actionsRecipes.length === 0) return <Loader />
+  if(statusCode === 500) return <NotFound/>
   else {
     return (
       <div className="homeDiv">

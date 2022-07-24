@@ -12,6 +12,7 @@ export const SORT_AZ = 'SORT_AZ';
 export const SORT_SCORE = 'SORT_SCORE';
 export const FILTER_BY_DIET = 'FILTER_BY_DIET';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
+export const STATUS = 'STATUS';
 
 export function getAllRecipes() {
   return async function(dispatch){
@@ -84,8 +85,11 @@ export function getSearchedRecipes (search) {
       });
     })
     .catch(err => {
-      console.error(`Error in getSearchedRecipes`, err.response.data);
-      return alert(`Not found recipes named '${search}'`);
+      console.error(`Error in getSearchedRecipes`, err.response.status);
+      dispatch({
+        type: STATUS,
+        payload: [err.response.status, search]
+      })
     })
   }
 }

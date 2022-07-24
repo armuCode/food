@@ -1,0 +1,129 @@
+
+
+  .page_404{ 
+    padding:10px 0; 
+    background:#fff; 
+  }
+
+  .page_404  img{ 
+    width:100%;
+  }
+  
+  .four_zero_four_bg{  
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+    z-index: 100;
+  }
+  
+  
+  .four_zero_four_bg h1{
+    font-size:7rem;
+    font-family: 'Raleway', sans-serif;
+    padding: 0rem;
+    margin: 0rem;
+    margin-top: 5rem;
+    z-index: -10;
+    margin-right: 50%;
+  }
+  
+  .four_zero_four_bg h3{
+      font-size:80px;
+    }
+    
+    .link_404{			 
+      color: #fff!important;
+      padding: 10px 20px;
+      background: #39ac31;
+      margin: 20px 0;
+      display: inline-block;
+    }
+    
+    #searchedN{
+      position: absolute;
+      top:15rem;
+      left:60%;
+      font-size: 2rem;
+      background-color: var(--merengue);
+      padding: 1rem;
+      color: var(--white);
+    }
+
+
+
+/*----------------- Redirecting-------------- */
+
+    .spinner {
+      height: 500px;
+      width: max-content;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: monospace;
+      letter-spacing: 1em;
+      color: vaR(--dark-blue);
+      filter: drop-shadow(0 0 10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 22%;
+    }
+     
+     .spinner span {
+      animation: loading6454 1.75s ease infinite;
+     }
+     
+     .spinner span:nth-child(2) {
+      animation-delay: 0.25s;
+     }
+     
+     .spinner span:nth-child(3) {
+      animation-delay: 0.5s;
+     }
+     
+     .spinner span:nth-child(4) {
+      animation-delay: 0.75s;
+     }
+     
+     .spinner span:nth-child(5) {
+      animation-delay: 1s;
+     }
+     
+     .spinner span:nth-child(6) {
+      animation-delay: 1.25s;
+     }
+     
+     .spinner span:nth-child(7) {
+      animation-delay: 1.5s;
+     }
+
+     .spinner span:nth-child(8) {
+      animation-delay: 1.75s;
+     }
+
+     .spinner span:nth-child(9) {
+      animation-delay: 2s;
+     }
+
+     .spinner span:nth-child(10) {
+      animation-delay: 1.25s;
+     }
+
+     .spinner span:nth-child(11) {
+      animation-delay: 2.50s;
+     }
+
+     .spinner span:nth-child(12) {
+      animation-delay: 2.75s;
+     }
+
+     
+     @keyframes loading6454 {
+      0%, 100% {
+       transform: translateY(0);
+      }
+     
+      50% {
+       transform: translateY(-10px);
+      }
+     }

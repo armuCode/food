@@ -62,11 +62,25 @@ const getPost = async (name, image, summary, healthyScore, Diets, dishTypes, ste
 
 }
 
+const deleted = async(id)=>{
+
+  await Recipe.destroy({
+    where: {
+     id: id
+    }
+   }).then(count => {
+    if (!count) {
+     return `Error: no ${id} found`
+    }
+    else return `${id} deleted correctly in controller`
+   });
+}
 
 module.exports = {
   getIdInAPI,
   getIdInDb,
-  getPost, 
+  getPost,
+  deleted, 
 };
 
 

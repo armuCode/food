@@ -60,6 +60,20 @@ router.post('/create', async (req, res, next) => {
 })
 
 
+router.delete('/delete/:id', async (req, res, next) =>{
+  let { id }= req.params
+
+  try {
+    await deleted(id)
+    res.status(202).json(`${id} deleted in route correctly`)
+
+  } catch (error) {
+    next(error)
+    
+  }
+
+})
+
 
 
 
