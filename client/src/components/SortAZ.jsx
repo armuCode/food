@@ -16,7 +16,7 @@ export default function SortAZ() {
   return (
     <div>
       <select name='select' onChange={e => onSelectChange(e)}>
-        <option name='-Select one-' disabled selected> Sort A-Z</option>
+        <option name='-Select one-' disabled selected> Sort Name</option>
         <option value='A to Z'>A to Z</option>
         <option value='Z to A'>Z to A</option>
       </select>

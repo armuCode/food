@@ -10,10 +10,11 @@ const {
 
 
 // http://localhost:3001/recipe
+
+/*----- Route not used to minimize request to API --- */
 router.get('/:id', async (req, res, next) => {
   
   const { id } = req.params;
-
   try {
     if (id.length < 35 ) {
       const idAPI = await getIdInAPI(id)
@@ -25,8 +26,9 @@ router.get('/:id', async (req, res, next) => {
   } catch (error) {
     next(error)    
   }
-
 });
+/* -----------------------------------------------------------*/
+
 
 router.post('/create', async (req, res, next) => {
   

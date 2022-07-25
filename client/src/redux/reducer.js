@@ -40,9 +40,10 @@ export function reducer (state = initialState, { type, payload /* action */}){
         allDiets: payload,
       }
     case GET_DETAILS:
+      const found = state.allRecipes.find(recipe => recipe.id === payload);
       return{
         ...state,
-        recipeDetails: payload,
+        recipeDetails: found,
       }
     case CLEAN_UP:
       return{
@@ -58,6 +59,7 @@ export function reducer (state = initialState, { type, payload /* action */}){
     case POST_RECIPE:
       return{
         ...state,
+        actionsRecipes: [...new Set(state.actionsRecipes),payload]
       }
     case SORT_AZ:
       let sortRAZ = [...state.actionsRecipes];

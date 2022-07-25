@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { cleanUp } from "../redux/actions";
+import { useHistory } from 'react-router';
 
 import img404 from '../../src/assets/404.gif'
 
@@ -8,13 +9,15 @@ import './CSS/NotFound.css';
 
 export default function NotFound() {
 
-  let [statusCode, search ] = useSelector(state => state.status);  
-  
+  let [statusCode, search ] = useSelector(state => state.status); 
+  const history = useHistory()
   const dispatch = useDispatch();
+  
 
   useEffect(()=>{
       setTimeout (() => {
       dispatch(cleanUp())
+      history.push('/home')
     }, '3000')
   },[dispatch])
   

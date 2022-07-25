@@ -28,6 +28,14 @@ router.get('/search/:name', async (req, res, next) => {
   }
 });
 
+router.get('/db', async (req, res, next) => {
+  try {
+    res.status(200).json(await dbData())
+  } catch (error) {
+    next(error)
+  }
+})
+
 
 module.exports = router
 

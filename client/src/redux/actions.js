@@ -53,6 +53,15 @@ export function getAllDiets() {
 }
 
 export function getDetails(id) {
+  return {
+    type: GET_DETAILS,
+    payload: id
+  }
+}
+
+/*----- Action not used to minimize request to API --- */
+
+/* export function getDetails(id) {
   return async function(dispatch){
     return await axios.get(`${REACT_APP_HOST}/recipe/${id}`)
     .then(rAxios => {
@@ -66,7 +75,7 @@ export function getDetails(id) {
       return alert(err);
     })
   }
-}
+} */
 
 export function cleanUp() {
   return {
@@ -100,7 +109,7 @@ export function postRecipe (payload) {
     .then(rAxios => {
       dispatch({
         type: POST_RECIPE,
-        payload: rAxios.data
+        payload
       });
     })
     .catch (error => {

@@ -15,7 +15,6 @@ export default function RecipeDetails () {
   let { id } = useParams();
   useEffect(() => {
     dispatch(getDetails(id))
-    return dispatch(cleanUp())
   },[id])
 
   let recipeDetails = useSelector(state => state.recipeDetails);

@@ -73,7 +73,7 @@ export default function CreateR() {
 
     setRecipeCreated({
       ...recipeCreated,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
 
     if (e.target.name === 'Diets'){
@@ -109,6 +109,7 @@ export default function CreateR() {
       dishTypes: [],
       steps: [],
     })
+    history.push('/home')
   }
 
   return(

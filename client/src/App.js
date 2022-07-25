@@ -8,6 +8,7 @@ import RecipeDetails from './components/RecipeDetails.jsx';
 import Navbar from './components/Navbar.jsx';
 import CreateR from './components/CreateR.jsx';
 import Menu from './components/Menu';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
 
         <Route path='/contact'>
           <Menu/>
+        </Route>
+
+        <Route path='/*'>
+          <NotFound/>
         </Route>
 
       </Switch>
