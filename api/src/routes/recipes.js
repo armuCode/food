@@ -1,12 +1,22 @@
 const express = require('express')
 const router = express.Router();
 
-const {   
+const {
+  getApiData,   
   allRecipes,
   getSearchByName,
-  dbData
+  dbCreated, 
+  avoidRequest,
 } = require('../controllers/Recipes.controllers');
 
+
+router.get('/pruebas', async (req, res, next) => {
+  try {
+    res.status(200).json(await allRecipes())
+  } catch (error) {
+    next(error);
+  }
+})
 
 // http://localhost:3001/recipes
 router.get('/', async (req, res, next ) => {
@@ -30,7 +40,7 @@ router.get('/search/:name', async (req, res, next) => {
 
 router.get('/db', async (req, res, next) => {
   try {
-    res.status(200).json(await dbData())
+    res.status(200).json(await dbCreated())
   } catch (error) {
     next(error)
   }

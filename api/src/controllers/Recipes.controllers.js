@@ -5,51 +5,61 @@ const { Diet, Recipe } = require("../db");
 const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
 const { API_KEY } = process.env;
 const queryUrl = '&addRecipeInformation=true&number='
-const nR = 20
+const nR = 1
 
 const { dbRecipes } = require('../../dbRecipes')
 
+let apiSpoon = []
+
 const getApiData = async () => {  
   try {
-    let apiUrl = await axios.get(
+    apiSpoon = await axios.get(
       `${url}${API_KEY}${queryUrl}${nR}`
       );
-
-/*       const mixed = await axios.get(dbRecipes.concat(apiUrl))
-      console.log('\x1b[41m', mixed)
-      const apiData = mixed.data.results.map((recipes) => { */
-
-      const apiData = await apiUrl.data.results.map((recipes) => {
-      
-      return {
-        id: recipes.id.toString(),
-        name: recipes.title.toLowerCase(), 
-        image: recipes.image,
-        summary: recipes.summary.replace(/<[^>]+>/g, ''),
-        healthyScore: recipes.healthScore,
-        Diets: recipes.vegetarian === true ? 
-              [...recipes.diets, 'vegetarian']
-              : recipes.diets,
-        dishTypes: recipes.dishTypes,
-        steps: recipes.analyzedInstructions[0]?.steps.map((s) => {
+    
+    apiSpoon = await apiSpoon.data.results.map((recipes) => {
           return {
-            number: s.number, 
-            step: s.step,
-          };
-        }),
-      };
-    });
-    //console.log(apiData);
-    return apiData;
+            id: recipes.id.toString(),
+            name: recipes.title.toLowerCase(), 
+            image: recipes.image,
+            summary: recipes.summary.replace(/<[^>]+>/g, ''),
+            healthyScore: recipes.healthScore,
+            Diets: recipes.vegetarian === true ? 
+                  [...recipes.diets, 'vegetarian']
+                  : recipes.diets,
+            dishTypes: recipes.dishTypes,
+            steps: recipes.analyzedInstructions[0]?.steps.map((s) => {
+              return {
+                number: s.number, 
+                step: s.step,
+              };
+            }),
+          }
+    })
+    return apiSpoon;
+
   } catch(error) {
     console.error(
       "\x1b[43m", '---Error during getApiData---', error.response.data
     );
-    throw new Error ('Failed to BackEnd-Recipes',)
+    throw new Error ('Your daily points has been reached',)
   }
 };
 
-const dbData = async () => {
+let avoidRequest = async () => {
+  try {
+    apiSpoon = await dbRecipes.concat(apiSpoon)
+    apiSpoon = [...new Set(apiSpoon)]
+    return apiSpoon;
+  } catch (error) {
+    console.error(
+      "\x1b[43m", '---Error during getApiData---', error.response.data
+    );
+    throw new Error ('avoidRequest function is not possible',)
+  }
+}
+
+const dbCreated = async () => {
   let dbDatos = await Recipe.findAll({
     include: {
       model: Diet,
@@ -70,8 +80,8 @@ const dbData = async () => {
 };
 
 const allRecipes = async () => {
-  const api = await getApiData();
-  const db = await dbData();  
+  const api = await avoidRequest();
+  const db = await dbCreated();  
   const all = api.concat(db);
   return all;
 };
@@ -95,7 +105,8 @@ const getSearchByName = async (name) => {
 
 module.exports = {
   getApiData,
-  dbData,
+  dbCreated,
   allRecipes,
-  getSearchByName
+  getSearchByName,
+  avoidRequest,
 };
