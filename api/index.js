@@ -18,8 +18,6 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { getAlldiets } = require('./src/controllers/Diets.controllers.js');
-
 
 const { conn } = require('./src/db.js');
 
@@ -28,6 +26,6 @@ conn.sync({ force: false }).then(async() => {
   server.listen(3001, () => {
     console.log('*** armuCode ----- port: 3001'); 
   });
- await getAlldiets() 
+
 });
 

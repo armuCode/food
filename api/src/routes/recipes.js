@@ -9,10 +9,15 @@ const {
   avoidRequest,
 } = require('../controllers/Recipes.controllers');
 
+const {
+  getDiets,
+  getAlldiets
+} = require ('../controllers/Diets.controllers')
+
 
 router.get('/pruebas', async (req, res, next) => {
   try {
-    res.status(200).json(await allRecipes())
+    res.status(200).json(await getDiets())
   } catch (error) {
     next(error);
   }

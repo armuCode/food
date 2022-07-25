@@ -1,49 +1,47 @@
-const axios = require("axios");
 const { Diet } = require("../db");
 
-const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey='
-const { API_KEY } = process.env;
-const queryUrl = '&addRecipeInformation=true&number='
-const nR = 1
+const { dbRecipes } = require('../../dbRecipes')
 
-const getDiets = async (req, res) => { 
+let getDiets = async (req, res) => { 
   try { 
-    const dietas = await axios.get(
-      `${url}${API_KEY}${queryUrl}${nR}`
-    );
+
+    let dietsApi = await dbRecipes
     
-    const types = await dietas.data.results.map((t) => t.diets);  
-    const diets = types.flat();
-    const typeDiets = [...new Set(diets),"vegetarian"]; 
+    let types = dietsApi.map((t) => t.Diets);  
+    let diets = types.flat();
+    let typeDiets = [...new Set(diets),"vegetarian"]; 
     typeDiets.forEach(async di => {
       await Diet.findOrCreate({ 
         where: { 
           name: di 
         }, 
       });
-    });
+    });  
     return typeDiets;
   } catch(error) {
-    console.error("\x1b[43m", '---Error during getDiets---', error.response.data);
-    throw new Error ('Failed to get diets at Backend');
+    console.error("\x1b[43m", '---Error during getDiets---', error);
+    throw new Error (error);
   }
 };
 
-const getAlldiets = async (req, res) => {
+const getAlldiets = async () => {
 
-    const dietsInBase = await Diet.findAll();
-    const base = dietsInBase.map(r => r.name);
-    const dietsApi = await getDiets();
-    const api = dietsApi.map(r => r.name);
-    const finded = base.length ? base : api
-    return finded;
-
+  let dietsInBase = await Diet.findAll();
+  if(dietsInBase.length === 0) return getDiets()
+  else {
+    let baseD = dietsInBase.map(r => r.name);
+    return baseD;
+  }
 }; 
 
 module.exports = {
-  getAlldiets,
+getAlldiets,
 };
 
+module.exports = {
+  getDiets,
+  getAlldiets,
+};
 
 /* 
 
