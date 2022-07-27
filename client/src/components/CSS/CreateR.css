@@ -208,10 +208,11 @@ option {
 /*---------------------Background----------------------*/
 
 .create {
-  background: -moz-linear-gradient(45deg, var(--gray) 0%, var(--dark-blue) 29%, var(--gray) 66%, var(--dark-blue) 100%);
-  background: -webkit-linear-gradient(45deg, var(--gray) 0%, var(--dark-blue) 29%, var(--gray) 66%, var(--dark-blue) 100%);
-  background: linear-gradient(45deg, var(--gray) 0%, var(--dark-blue) 29%, var(--gray) 66%, var(--dark-blue) 100%);
-  background-size: 400% 400%;
+  background: url(https://img.freepik.com/free-vector/healthy-food-background-with-flat-design_23-2147851183.jpg?w=2000);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
   -webkit-animation: Gradient 15s ease infinite;
 -moz-animation: Gradient 15s ease infinite;
 animation: Gradient 15s ease infinite;
@@ -316,3 +317,9 @@ to {
 .st13{opacity:0.2;}
 .st14{clip-path:url(#SVGID_16_);}
 .st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+
+@media screen and (max-width:800px) {
+  .form-container {
+    height: 90%;
+  }
+}

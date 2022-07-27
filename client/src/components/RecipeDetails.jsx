@@ -13,15 +13,16 @@ export default function RecipeDetails () {
   const dispatch = useDispatch();
 
   let { id } = useParams();
+  
+  let recipeDetails = useSelector(state => state.recipeDetails);
+  
+  
   useEffect(() => {
     dispatch(getDetails(id))
   },[id])
-
-  let recipeDetails = useSelector(state => state.recipeDetails);
-
   
-  const { name, image, summary, healthyScore, dishTypes, steps, Diets } = recipeDetails
-
+  
+  let { name, image, summary, healthyScore, dishTypes, steps, Diets } = recipeDetails
 
 
   if(recipeDetails.length === 0) return <Loader />

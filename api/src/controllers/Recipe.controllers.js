@@ -9,7 +9,7 @@ const {
 
 
 const getIdInAPI = async (id) => {
-  const searched = await getApiData();
+  const searched = await getApiData(id);
   const finded = searched.find(r => r.id === id);
   return finded;
 }

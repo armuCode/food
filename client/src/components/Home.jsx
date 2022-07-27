@@ -33,8 +33,6 @@ export default function Home() {
     setCurrentPage(pageNumber);
   }
 
-  console.log(statusCode[0])
-
   if(statusCode[0] === 500) return <NotFound/>
   if(actionsRecipes.length === 0) return <Loader />
   else {
