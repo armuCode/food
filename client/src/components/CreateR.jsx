@@ -158,6 +158,7 @@ export default function CreateR() {
           <label className="form__label">0←healthy Score→100</label>
           <h4 className="form__label">{recipeCreated.healthyScore}</h4>
           <img src={Rate} alt="Rate" className="rate1" />
+          <br></br>
           <input
               className="barScore"
               placeholder="from 0 to 100."

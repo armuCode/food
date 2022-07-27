@@ -7,12 +7,14 @@ export const GET_ALL_DIETS = 'GET_ALL_DIETS';
 export const GET_DETAILS = 'GET_DETAILS';
 export const CLEAN_UP = 'CLEAN_UP';
 export const GET_SEARCHED = 'GET_SEARCHED';
+export const SEARCH_ACTIVE = 'SEARCH_ACTIVE';
 export const POST_RECIPE = 'POST_RECIPE';
 export const SORT_AZ = 'SORT_AZ';
 export const SORT_SCORE = 'SORT_SCORE';
 export const FILTER_BY_DIET = 'FILTER_BY_DIET';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
 export const STATUS = 'STATUS';
+export const CURRENT_PAGE = 'CURRENT_PAGE';
 
 export function getAllRecipes() {
   return async function(dispatch){
@@ -103,6 +105,13 @@ export function getSearchedRecipes (search) {
   }
 }
 
+export function searchActive(status) {
+  return {
+    type: SEARCH_ACTIVE,
+    payload: status
+  }
+}
+
 export function postRecipe (payload) {
   return async function(dispatch){
     return await axios.post(`${REACT_APP_HOST}/recipe/create`, payload)
@@ -146,3 +155,9 @@ export function filterByOrigin(payload){
   }
 }
 
+export function controlcurrentPage(number) {
+  return {
+    type: CURRENT_PAGE,
+    payload: number
+  }
+}

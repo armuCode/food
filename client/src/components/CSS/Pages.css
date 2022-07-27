@@ -17,12 +17,12 @@
     z-index: 0;
 }
 .active{
-  background-color: var(--dark-blue);
-  color: var(--white);
+
+  color: var(--dark-blue);
+  border-bottom: 2px solid var(--dark-blue);
 }
 
 .active:hover{
-  background-color: var(--dark-blue);
   color: var(--white);
 }
 

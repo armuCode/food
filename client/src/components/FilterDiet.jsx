@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { filterByDiet, getAllDiets } from "../redux/actions";
+import { filterByDiet, getAllDiets, currentPage } from "../redux/actions";
 
 
 export default function FilterDiet() {

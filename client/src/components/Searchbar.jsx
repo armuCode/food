@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink, useParams } from "react-router-dom";
+import { searchActive } from "../redux/actions";
 
 import { getSearchedRecipes } from "../redux/actions";
 
@@ -15,9 +16,11 @@ export default function Searchbar() {
   function onSubmit(e) {
     e.preventDefault();
     if(!search) return alert ("Please enter a search term")
-    dispatch(getSearchedRecipes(search))
-    history.push("/home");
-    setSearch('xxx')
+    else {
+      dispatch(searchActive(true))
+      setSearch('')
+      dispatch(getSearchedRecipes(search))
+    }
   }
 
   function onChange(e) {

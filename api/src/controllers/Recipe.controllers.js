@@ -66,14 +66,14 @@ const deleted = async(id)=>{
 
   await Recipe.destroy({
     where: {
-     id: id
+      id: id
     }
-   }).then(count => {
+  }).then(count => {
     if (!count) {
-     return `Error: no ${id} found`
+      return `Error: no ${id} found`
     }
     else return `${id} deleted correctly in controller`
-   });
+  });
 }
 
 module.exports = {

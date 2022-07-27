@@ -4,12 +4,14 @@ import {  GET_ALL_RECIPES,
           GET_DETAILS, 
           CLEAN_UP, 
           GET_SEARCHED, 
+          SEARCH_ACTIVE,
           POST_RECIPE,
           SORT_AZ,
           SORT_SCORE,
           FILTER_BY_DIET,
           FILTER_BY_ORIGIN,
           STATUS,
+          CURRENT_PAGE,
 } from "./actions";
 
 const initialState = {
@@ -17,7 +19,8 @@ const initialState = {
   actionsRecipes: [],
   recipeDetails:[],
   allDiets: [],
-  status: [], 
+  status: [],
+  page: 1,
 }
 
 
@@ -55,6 +58,11 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
         actionsRecipes: payload,
+      }
+    case SEARCH_ACTIVE:
+      return{
+        ...state,
+        filter: payload,
       }
     case POST_RECIPE:
       return{
@@ -104,6 +112,11 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return {
         ...state,
         actionsRecipes: arrayFilterOrigin,
+      }
+    case CURRENT_PAGE:
+      return {
+        ...state,
+        page: payload
       }
     case STATUS:
       return {
