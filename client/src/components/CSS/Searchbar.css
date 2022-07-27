@@ -1,43 +1,83 @@
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+/* styling of whole input container */
 .form {
+  --timing: 0.3s;
   --width-of-input: 200px;
-  --border-height: 2px;
-  --border-before-color: var(--dark-blue);
-  --border-after-color: var(--yellow);
-  --input-hovered-color: var(--white);
+  --height-of-input: 40px;
+  --border-height: 4px;
+  --input-bg: #fff;
+  --border-color: var(--orange);
+  --border-radius: 3px;
+  --after-border-radius: 2px;
   position: relative;
   width: var(--width-of-input);
- }
- /* styling of Input */
- .input {
-  color: var(--dark-blue);
-  font-size: 0.9rem;
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0rem;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+  background: var(--input-bg,#fff);
+}
+/* styling of Input */
+.input {
+  font-size: 1rem;
   background-color: transparent;
   width: 100%;
-  box-sizing: border-box;
+  height: 100%;
   padding-inline: 0.5em;
   padding-block: 0.7em;
   border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
- }
- /* styling of animated border */
- .input-border {
+}
+/* styling of animated border */
+.form:before {
+  content: "";
   position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s;
- }
- /* Hover on Input */
- input:hover {
-  background: var(--input-hovered-color);
- }
- 
- input:focus {
-  outline: none;
- }
- /* here is code of animated border */
- input:focus ~ .input-border {
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
   width: 100%;
- }
+  height: var(--border-height);
+  left: 0rem;
+  bottom: 0;
+  border: 2rem;
+  border-radius: 5px;
+  border-top: 2rem;
+  transition: transform var(--timing) ease;
+}
+/* Hover on Input */
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+input:focus {
+  outline: none;
+  height: 0.82rem;
+}
+/* here is code of animated border */
+.form:focus-within:before {
+  transform: scale(1);
+}
+/* styling of close button */
+/* == you can click the close button to remove text == */
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+  background-color: blue;
+}
+/* close button shown when typing */
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+/* sizing svg icons */
+.form svg {
+  width: 17px;
+  margin-top: 3px;
+}

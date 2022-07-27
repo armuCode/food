@@ -15,9 +15,8 @@ export default function Home() {
   
   let actionsRecipes = useSelector(state => state.actionsRecipes);
   let page = useSelector(state => state.page);
-  console.log('pageState',page)
-  
   let statusCode = useSelector(state => state.status);
+  const dispatch = useDispatch();
   
   const [currentPage, setCurrentPage] = useState(page);
   const [recipesPerPage] = useState(9);
@@ -25,13 +24,14 @@ export default function Home() {
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = actionsRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
   
+  useEffect(() => {
+    if(actionsRecipes.length === 0) dispatch(getAllRecipes());
+    setCurrentPage(page)
+  },[page])
+  
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
-  
-  useEffect(() => {
-    setCurrentPage(page)
-  },[page])
 
   if(actionsRecipes.length === 0) return <Loader />
   if(statusCode === 500) return <NotFound/>

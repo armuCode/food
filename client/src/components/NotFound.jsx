@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { cleanUp } from "../redux/actions";
 import { useHistory } from 'react-router';
 
-import img404 from '../../src/assets/404.gif'
-
 import './CSS/NotFound.css';
 
 export default function NotFound() {
