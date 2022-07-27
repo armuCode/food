@@ -7,7 +7,7 @@ import './CSS/NotFound.css';
 
 export default function NotFound() {
 
-  let statusCode= useSelector(state => state.status); 
+  let [code, search]= useSelector(state => state.status); 
   const history = useHistory()
   const dispatch = useDispatch();
   
@@ -31,7 +31,7 @@ export default function NotFound() {
           <div class="four_zero_four_bg">
             <h1 class="text-center ">..404</h1>
             <h3 id='searchedN'>
-            {` ¿ ${search} ?` }
+            { search === undefined ? `come on!` : ` ¿ ${search} ?` }
             </h3>
           </div>
 
