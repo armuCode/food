@@ -40,7 +40,7 @@ export default function Searchbar() {
 
         <input 
           className="input" 
-          placeholder="find a recipe by name..." 
+          placeholder="find by name..." 
           required=""
           onChange={(e) => onChange(e)}
           type="text"
