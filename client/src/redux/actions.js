@@ -105,13 +105,6 @@ export function getSearchedRecipes (search) {
   }
 }
 
-export function searchActive(status) {
-  return {
-    type: SEARCH_ACTIVE,
-    payload: status
-  }
-}
-
 export function postRecipe (payload) {
   return async function(dispatch){
     return await axios.post(`${REACT_APP_HOST}/recipe/create`, payload)

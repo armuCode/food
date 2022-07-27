@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { filterByOrigin  } from "../redux/actions";
+import { filterByOrigin, controlcurrentPage  } from "../redux/actions";
 
 
 export default function FilterDiet() {
@@ -12,6 +12,7 @@ export default function FilterDiet() {
   function handleFilterByOrigin(e){
     e.preventDefault()
     dispatch(filterByOrigin(e.target.value))
+    dispatch(controlcurrentPage(1))
   }
 
   return(

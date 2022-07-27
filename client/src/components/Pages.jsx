@@ -23,14 +23,6 @@ export default function Pages({recipesPerPage, actionsRecipes, pages, currentPag
   }
 
   let totalPages= Math.ceil(actionsRecipes/recipesPerPage)
- 
-  let handlePageBack = (number) => {
-    if(!number) return; 1
-    if(totalPages < number) return 1
-    if(totalPages >= number ) return number
-  }
-  
-  console.log('totalpages',totalPages)
 
   return (
     !actionsRecipes === [] ? <Loader /> :
@@ -44,8 +36,8 @@ export default function Pages({recipesPerPage, actionsRecipes, pages, currentPag
               <button
               key={number}
               className={currentPage === number ? 'active' : ''}
-              onClick={()=>{
-                pages(handlePageBack(number))
+              onClick={(e)=>{
+                pages(number)
                 dispatch(controlcurrentPage(number))
               }}>{`${number}`}
               </button>

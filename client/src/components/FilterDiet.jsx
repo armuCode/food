@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { filterByDiet, getAllDiets, currentPage } from "../redux/actions";
+import { filterByDiet, getAllDiets, controlcurrentPage } from "../redux/actions";
 
 
 export default function FilterDiet() {
@@ -13,6 +13,7 @@ export default function FilterDiet() {
   function handleFilterByDiet(e){
     e.preventDefault()
     dispatch(filterByDiet(e.target.value))
+    dispatch(controlcurrentPage(1))
   }
 
   useEffect(() => {

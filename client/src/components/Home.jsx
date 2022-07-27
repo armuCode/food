@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink } from "react-router-dom";
 
-import { getAllRecipes, getAllDiets, searchActive } from "../redux/actions";
+import { getAllRecipes, getAllDiets  } from "../redux/actions";
 
 import Pages from "../components/Pages";
 import CardR from "../components/CardR";
@@ -12,12 +12,12 @@ import NotFound from "./NotFound";
 import './CSS/Home.css';
 
 export default function Home() {
-
+  
   let actionsRecipes = useSelector(state => state.actionsRecipes);
   let page = useSelector(state => state.page);
-
-  let [statusCode, search] = useSelector(state => state.status);
+  console.log('pageState',page)
   
+  let statusCode = useSelector(state => state.status);
   
   const [currentPage, setCurrentPage] = useState(page);
   const [recipesPerPage] = useState(9);
@@ -28,7 +28,10 @@ export default function Home() {
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
-
+  
+  useEffect(() => {
+    setCurrentPage(page)
+  },[page])
 
   if(actionsRecipes.length === 0) return <Loader />
   if(statusCode === 500) return <NotFound/>

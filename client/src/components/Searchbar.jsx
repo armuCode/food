@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, NavLink, useParams } from "react-router-dom";
-import { searchActive } from "../redux/actions";
-
-import { getSearchedRecipes } from "../redux/actions";
+import { getSearchedRecipes, controlcurrentPage } from "../redux/actions";
 
 import './CSS/Searchbar.css';
 
 export default function Searchbar() {
 
-  const history = useHistory();
   const dispatch = useDispatch();
   const [search, setSearch] = useState([]);
 
@@ -17,9 +13,9 @@ export default function Searchbar() {
     e.preventDefault();
     if(!search) return alert ("Please enter a search term")
     else {
-      dispatch(searchActive(true))
       setSearch('')
       dispatch(getSearchedRecipes(search))
+      dispatch(controlcurrentPage(1))
     }
   }
 

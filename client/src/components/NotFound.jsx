@@ -9,7 +9,7 @@ import './CSS/NotFound.css';
 
 export default function NotFound() {
 
-  let [statusCode, search ] = useSelector(state => state.status); 
+  let statusCode= useSelector(state => state.status); 
   const history = useHistory()
   const dispatch = useDispatch();
   
