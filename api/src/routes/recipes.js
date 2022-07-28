@@ -17,7 +17,7 @@ const {
 
 router.get('/pruebas', async (req, res, next) => {
   try {
-    res.status(200).json(await getDiets())
+    res.status(200).json(await getApiData())
   } catch (error) {
     next(error);
   }

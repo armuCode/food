@@ -19,7 +19,7 @@ export default function Home() {
   const dispatch = useDispatch();
   
   const [currentPage, setCurrentPage] = useState(page);
-  const [recipesPerPage] = useState(9);
+  const [recipesPerPage] = useState(12);
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = actionsRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
@@ -49,18 +49,18 @@ export default function Home() {
             <ul className="cardSize">
               {currentRecipes.map(recipe => {
                 return(
-                    <CardR
-                      key={recipe.id}
-                      id={recipe.id}
-                      name={recipe.name}
-                      image={recipe.image}
-                      summary={recipe.summary}
-                      healthyScore={recipe.healthyScore}
-                      Diets={recipe.Diets}
-                      dishTypes={recipe.dishTypes}
-                      steps={recipe.steps}
-                      createdInDb={recipe.createdInDb ? recipe.createdInDb : recipe.createdInDb = false}
-                    />
+                  <CardR
+                    key={recipe.id}
+                    id={recipe.id}
+                    name={recipe.name}
+                    image={recipe.image}
+                    summary={recipe.summary}
+                    healthyScore={recipe.healthyScore}
+                    Diets={recipe.Diets}
+                    dishTypes={recipe.dishTypes}
+                    steps={recipe.steps}
+                    createdInDb={recipe.createdInDb ? recipe.createdInDb : recipe.createdInDb = false}
+                  />
                 )
               })}
             </ul>

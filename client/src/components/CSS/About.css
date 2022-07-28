@@ -1,0 +1,61 @@
+/* From uiverse.io by @JoseIsra */
+.cardA {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  margin-top: 5rem;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+  transition: all 2.25s;
+  background-image: radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% );
+  padding: 12rem;
+  transform-style: preserve-3d;
+}
+
+.cardA:hover .content {
+  transform: rotateY(0.5turn);
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.title {
+  transform: translateZ(5rem);
+  font-size: 2rem;
+  color: white;
+}
+
+.subtitle {
+  transform: translateZ(2rem);
+  font-size: 1rem;
+  color: var(--gray);
+
+}
+
+.back {
+  transform: rotateY(0.5turn);
+  background-image: linear-gradient( 109.6deg,  rgba(48,44,124,1) 11.2%, rgba(104,54,233,1) 84.6% );
+  color: var(--gray);
+
+}
+
+.description {
+  transform: translateZ(3rem);
+  color: var(--gray);
+
+}

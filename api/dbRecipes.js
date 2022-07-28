@@ -1,5 +1,3 @@
-
-
 const dbRecipes = [
   {
     "id": "716426",
@@ -1913,8 +1911,8 @@ const dbRecipes = [
     "dishTypes": [
       "side dish",
       "lunch",
-      "main course",
       "salad",
+      "main course",
       "main dish",
       "dinner"
     ],
@@ -3951,7 +3949,6 @@ const dbRecipes = [
       }
     ]
   }
-
-] 
+]
 
 exports.dbRecipes = dbRecipes

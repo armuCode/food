@@ -9,6 +9,8 @@ import Navbar from './components/Navbar.jsx';
 import CreateR from './components/CreateR.jsx';
 import Menu from './components/Menu';
 import NotFound from './components/NotFound';
+import About from './components/About';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -37,10 +39,12 @@ function App() {
 
         <Route path='/about'>
           <Menu/>
+          <About/>
         </Route>
 
         <Route path='/contact'>
           <Menu/>
+          <Contact/>
         </Route>
 
         <Route path='/*'>
