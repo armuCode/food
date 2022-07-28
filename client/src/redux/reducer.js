@@ -17,6 +17,7 @@ import {  GET_ALL_RECIPES,
 const initialState = {
   allRecipes: [],
   actionsRecipes: [],
+  filter: [],
   recipeDetails:[],
   allDiets: [],
   status: [],
@@ -31,6 +32,7 @@ export function reducer (state = initialState, { type, payload /* action */}){
         ...state,
         allRecipes: payload,
         actionsRecipes: payload,
+        filter: state.actionsRecipes
       }
     case RECIPES_LOADED:
       return {
@@ -58,6 +60,7 @@ export function reducer (state = initialState, { type, payload /* action */}){
       return{
         ...state,
         actionsRecipes: payload,
+        filter: payload,
       }
     case SEARCH_ACTIVE:
       return{
@@ -100,18 +103,19 @@ export function reducer (state = initialState, { type, payload /* action */}){
         actionsRecipes:sortRScore
       }
     case FILTER_BY_DIET:
-      let allRecipes = state.allRecipes
-      let arrayFilterDiet = payload === 'All' ? allRecipes : allRecipes.filter(recipe => recipe.Diets.includes(payload))
+      let filterRecipes = state.filter
+      let arrayFilterDiet = payload === 'All' ? filterRecipes : filterRecipes.filter(recipe => recipe.Diets.includes(payload))
       return {
         ...state,
         actionsRecipes: arrayFilterDiet,
       };
     case FILTER_BY_ORIGIN:
-      let allRecipes2 = state.allRecipes
-      let arrayFilterOrigin = payload === 'All' ? allRecipes2 : payload === 'DB' ? allRecipes2.filter(r => r.id.length > 30 ) : allRecipes2.filter(r => r.id.length < 30 )
+      let filterRecipesOrigin = state.filter
+      let arrayFilterOrigin = payload === 'All' ? filterRecipesOrigin : payload === 'DB' ? filterRecipesOrigin.filter(r => r.id.length > 30 ) : filterRecipesOrigin.filter(r => r.id.length < 30 )
       return {
         ...state,
         actionsRecipes: arrayFilterOrigin,
+
       }
     case CURRENT_PAGE:
       return {

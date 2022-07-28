@@ -13,6 +13,7 @@ export default function FilterDiet() {
   function handleFilterByDiet(e){
     e.preventDefault()
     dispatch(filterByDiet(e.target.value))
+    
     dispatch(controlcurrentPage(1))
   }
 
