@@ -20,7 +20,8 @@ export default function FClear() {
 
   function handleClearFilters(e){
     e.preventDefault()
-    dispatch(getAllRecipesLoaded(e.target.value))
+    //dispatch(getAllRecipesLoaded(e.target.value))
+    window.location.reload()
     history.push('/home')
   }
 
