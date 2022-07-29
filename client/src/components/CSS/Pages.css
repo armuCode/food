@@ -1,12 +1,18 @@
+#pages{
+  padding-right: 1.6rem;
+}
 .pages {
-  gap: 1rem;
+  gap: 0.5rem;
   margin: 1rem;
   margin-top: 8rem;
   padding: 0rem;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .pages button {
-  gap: 1rem;
+  gap: 0.5rem;
   margin: 0.2rem;
   max-width: 4rem;
   max-height: 1.8rem;

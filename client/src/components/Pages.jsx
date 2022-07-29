@@ -26,7 +26,7 @@ export default function Pages({recipesPerPage, actionsRecipes, pages, currentPag
 
   return (
     !actionsRecipes === [] ? <Loader /> :
-    <nav >
+    <nav id='pages'>
       <ul className="pages">
         <button
           onClick={()=>setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)}

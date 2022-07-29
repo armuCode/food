@@ -16,7 +16,7 @@ const Landing = () => {
   
   return (
     <div className="bg">
-      <Link to='/home'>
+      {/* <Link to='/home'> */}
       <div className="cater3-movingBG">
         <div className="flyinTxtCont">
           <br></br>
@@ -32,7 +32,7 @@ const Landing = () => {
           <br></br>
         </div>
       </div>
-      </Link>
+      {/* </Link> */}
     </div>
   )
 }
