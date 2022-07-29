@@ -13,7 +13,9 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.css';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+dotenv.config();
+
+axios.defaults.baseURL = process.env.REACT_APP_HOST || 'http://localhost:3001';
 
 ReactDOM.render(
   <Provider store={store}>
