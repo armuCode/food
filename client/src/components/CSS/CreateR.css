@@ -84,13 +84,14 @@
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 17px;
+  font-size: 4px;
   color: var(--dark-blue);
   pointer-events: none;
 }
 
 .form__field:focus {
-  padding-bottom: 6px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   font-weight: 700;
   border-width: 3px;
   border-image: linear-gradient(to right, var(--yellow), var(--yellow)) 1;
@@ -99,12 +100,13 @@
 
 .form__field:focus ~ .form__label {
   position: absolute;
-  top: 0;
+  top: -10px;
   display: block;
   transition: 0.2s;
   font-size: 17px;
   color: var(--gray);
   font-weight: 700;
+  color: var(--dark-blue);
 }
 
 /* reset input */
@@ -122,7 +124,6 @@ option {
   padding-left: 0.5rem;
   z-index: 100;
 }
-
 
 
 .errors{
@@ -165,7 +166,7 @@ option {
 .chooseSpans {
   max-width: 7rem;
   max-height: 4rem;
-  bottom: 4.5rem;
+  bottom: 8rem;
   position: absolute;
   line-height: 0.8rem;
   left: 13.5rem;
@@ -181,7 +182,7 @@ option {
 .chooseSpans2 {
   max-width: 7rem;
   max-height: 4rem;
-  bottom: 1rem;
+  bottom: 4rem;
   position: absolute;
   line-height: 0.8rem;
   left: 13.5rem;

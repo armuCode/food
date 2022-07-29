@@ -18,7 +18,7 @@ export const CURRENT_PAGE = 'CURRENT_PAGE';
 
 export function getAllRecipes() {
   return async function(dispatch){
-    return await axios.get(`${REACT_APP_HOST}/recipes`)
+    return await axios.get(`/recipes`)
     .then(rAxios => {
       dispatch({
         type: GET_ALL_RECIPES,
@@ -40,7 +40,7 @@ export function getAllRecipesLoaded() {
 
 export function getAllDiets() {
   return async function(dispatch){
-    return await axios.get(`${REACT_APP_HOST}/diets`)
+    return await axios.get(`/diets`)
     .then(rAxios => {
       dispatch({
         type: GET_ALL_DIETS,
@@ -65,7 +65,7 @@ export function getDetails(id) {
 
 /* export function getDetails(id) {
   return async function(dispatch){
-    return await axios.get(`${REACT_APP_HOST}/recipe/${id}`)
+    return await axios.get(`/recipe/${id}`)
     .then(rAxios => {
       dispatch({
         type: GET_DETAILS,
@@ -88,7 +88,7 @@ export function cleanUp() {
 
 export function getSearchedRecipes (search) {
   return async function(dispatch){
-    return await axios.get(`${REACT_APP_HOST}/recipes/search/${search}`)
+    return await axios.get(`/recipes/search/${search}`)
     .then(rAxios => {
       dispatch({
         type: GET_SEARCHED,
@@ -107,7 +107,7 @@ export function getSearchedRecipes (search) {
 
 export function postRecipe (payload) {
   return async function(dispatch){
-    return await axios.post(`${REACT_APP_HOST}/recipe/create`, payload)
+    return await axios.post(`/recipe/create`, payload)
     .then(rAxios => {
       dispatch({
         type: POST_RECIPE,
