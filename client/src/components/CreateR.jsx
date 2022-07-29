@@ -35,8 +35,8 @@ export default function CreateR() {
   let allDiets = useSelector(state => state.allDiets);
   
   useEffect(() => {
-    actionsRecipes.length === 0 ? dispatch(getAllRecipes()) : '';
-    allDiets.length === 0 ? dispatch(getAllDiets()) : '';
+    if(actionsRecipes.length === 0) dispatch(getAllRecipes());
+    if(allDiets.length === 0) dispatch(getAllDiets());
   }, [dispatch])
 
   let dishTypes = [

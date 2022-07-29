@@ -18,7 +18,7 @@ export default function FilterDiet() {
   }
 
   useEffect(() => {
-    allDiets.length === 0 ? dispatch(getAllDiets()) : '';
+    if(allDiets.length === 0) dispatch(getAllDiets())
   }, [])
 
   return(

@@ -15,7 +15,7 @@ export default function FClear() {
 
 
   useEffect(() => {
-    allRecipes.length === 0 ? dispatch(getAllRecipes()) : '';
+    if(allRecipes.length === 0) dispatch(getAllRecipes())
   }, [])
 
   function handleClearFilters(e){
