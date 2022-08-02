@@ -23,7 +23,6 @@ export default function Menu(){
               <span className="line line3"></span>
         </div>
           <div className="logo">
-            <h1>Navbar</h1>
           </div>
           <div className="menu-items">
             <br></br>
