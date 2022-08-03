@@ -27,7 +27,7 @@ const Landing = () => {
           <div className="flyIn lineTwo"> food </div>
           <div className="flyIn lineThree">by: ArmuCode</div>
           <br></br>
-          <button className="flyIn lineFour">push-starts</button>
+          <button className="flyIn lineFour">press-starts</button>
           <br></br>
           <br></br>
         </div>
