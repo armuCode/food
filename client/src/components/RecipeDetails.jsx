@@ -18,6 +18,9 @@ export default function RecipeDetails () {
   
   
   useEffect(() => {
+    if(recipeDetails.length === 0) { 
+      dispatch(getAllRecipes()) 
+    }
     dispatch(getDetails(id))
   },[id])
   
